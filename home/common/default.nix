@@ -17,6 +17,32 @@ with lib;
       ./users/${username}.nix
     ];
 
+    host = {
+      home = {
+        applications = {
+          atuin.enable = mkDefault true;
+          bat.enable = mkDefault true;
+          dust.enable = mkDefault true;
+          eza.enable = mkDefault true;
+          fzf.enable = mkDefault true;
+          htop.enable = mkDefault true;
+          jq.enable = mkDefault true;
+          less.enable = mkDefault true;
+          ripgrep.enable = mkDefault true;
+          tmux.enable = mkDefault true;
+          wget.enable = mkDefault true;
+          zoxide.enable = mkDefault true;
+          zsh.enable = mkDefault true;
+          git = {
+            enable = mkDefault true;
+            defaultBranch = mkDefault "main";
+            email = mkDefault "foo";
+          };
+        };
+      };
+    };
+
+
     home = {
       packages = with pkgs;
         (lib.optionals pkgs.stdenv.isLinux
