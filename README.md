@@ -1,0 +1,2 @@
+# homemanager
+nix homemanager setup
