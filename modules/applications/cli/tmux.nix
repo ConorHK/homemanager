@@ -36,6 +36,21 @@ in
           tmuxPlugins.yank
         ];
         extraConfig = ''
+          set -g focus-events on
+          set -g status-style bg=default
+          set -g status-left-length 90
+          set -g status-right-length 90
+          set -g status-justify left
+          set -g status-fg colour7
+          set -g status-bg colour235
+          set -g status-interval 5
+          set -g status-position top
+          setw -g window-status-separator " "
+          setw -g window-status-format "#[bg=colour241,fg=colour0] #I #[bg=colour241,fg=colour0]#W #[bg=default,fg=colour241]▓░"
+          setw -g window-status-current-format "#[bg=colour10,fg=colour0] #I #[bg=colour10,fg=colour0]#W #[bg=default,fg=colour10]▓░"
+          set-option -g status-right "#[bg=default,fg=colour237]░▓#[bg=colour237,fg=colour15]#[bg=colour237,fg=colour243] %Y/%m/%d-%u #[fg=colour7]%H%M #[bg=colour243,fg=colour237]▓#[default]"
+          set-option -g status-left "#[bg=colour235,fg=colour7] #S "
+
           set -g set-clipboard on
           set -ag terminal-overrides ",tmux-256color:Ms=\\E]52;c;%p2%s\\7,xterm*:XT:Ms=\\E]52;c;%p2%s\\7"
 
