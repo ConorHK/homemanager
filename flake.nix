@@ -24,8 +24,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nvim.url = "github:conorhk/vimrc";
-    nvim.inputs.nixpkgs.follows = "nixpkgs";
+    cnvim.url = "github:conorhk/vimrc";
+    cnvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, home-manager, ...}@inputs:
@@ -70,6 +70,15 @@
         extraSpecialArgs = {
           username = "knoconor";
           role = "dev-dsk";
+          system = "x86_64-linux";
+          inherit inputs outputs;
+        };
+      };
+      "desktop" = HomeConfiguration {
+        extraSpecialArgs = {
+          username = "conor";
+          role = "desktop";
+          system = "x86_64-linux";
           inherit inputs outputs;
         };
       };

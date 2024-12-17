@@ -5,6 +5,7 @@ with lib;
   imports = [
     ./atuin.nix
     ./bat.nix
+    ./cnvim.nix
     ./dust.nix
     ./eza.nix
     ./fzf.nix
