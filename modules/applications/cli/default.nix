@@ -7,6 +7,7 @@ with lib;
     ./bat.nix
     ./cnvim.nix
     ./dust.nix
+    ./duf.nix
     ./eza.nix
     ./fzf.nix
     ./git.nix

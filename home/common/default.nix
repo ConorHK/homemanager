@@ -24,6 +24,7 @@ with lib;
           bat.enable = mkDefault true;
           cnvim.enable = mkDefault true;
           dust.enable = mkDefault true;
+          duf.enable = mkDefault true;
           eza.enable = mkDefault true;
           fzf.enable = mkDefault true;
           htop.enable = mkDefault true;
