@@ -90,8 +90,7 @@ in
 
       shellAliases = {
         nix = "noglob nix";
-        source-zsh = "source $ZDOTDIR/.zshrc";
-        home-manage = "home-manager switch --flake ~/.dotfiles && source $ZDOTDIR/.zshrc";
+        home-manager = "noglob home-manager";
       };
 
       history = {
