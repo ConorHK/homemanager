@@ -29,7 +29,7 @@ in
         color_root="%F{red}"
         color_user="%F{yellow}"
         color_normal="%F{white}"
-        color_git="%F{green}"
+        color_git="%F{magenta}"
 
         # allow functions in the prompt
         setopt PROMPT_SUBST
