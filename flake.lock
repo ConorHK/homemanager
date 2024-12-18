@@ -12,11 +12,11 @@
         "plugins-smear-cursor": "plugins-smear-cursor"
       },
       "locked": {
-        "lastModified": 1734478749,
-        "narHash": "sha256-NeWwOWfJGjYCe3+JThR/Gnvc5sWGbgOymPd19odZ0+I=",
+        "lastModified": 1734481108,
+        "narHash": "sha256-x5sT7ReUpjt95GpPUUeHnyWKEzu9sSgZ5sAxO2opo3A=",
         "owner": "conorhk",
         "repo": "vimrc",
-        "rev": "72cb9187f604ddc155d2a911b123c4bad8cdad47",
+        "rev": "839f25e7f1e2173e0c7bf20c34b0e523988f7cad",
         "type": "github"
       },
       "original": {

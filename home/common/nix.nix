@@ -1,4 +1,7 @@
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, specialArgs, ... }:
+let
+  inherit (specialArgs) username;
+in
 with lib;
 {
   home = {
@@ -49,6 +52,7 @@ with lib;
       experimental-features = [ "nix-command" "flakes" ];
       use-xdg-base-directories = mkDefault true;
       warn-dirty = mkDefault false;
+      trusted-users = [ username ];
     };
 
     package = pkgs.nixVersions.stable;
