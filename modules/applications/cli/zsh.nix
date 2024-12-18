@@ -81,7 +81,11 @@ in
         [ "$SSH_CLIENT" ] && echo "''${color_prompt}[$(hostname -s)] "
       }
 
-      PROMPT='%B$(ssh_prompt)%F{15}%(5~|%-1|%3~|%4~) %b$(git_prompt) ''${color_prompt}──── ─''${color_normal} '
+      nix_prompt() {
+        [ "$IN_NIX_SHELL" ] && echo "''${color_prompt}in nix shell "
+      }
+
+      PROMPT='%B$(ssh_prompt)%b$(nix_prompt)%B%F{15}%(5~|%-1|%3~|%4~) %b$(git_prompt) ''${color_prompt}──── ─''${color_normal} '
         '';
 
       shellAliases = {
