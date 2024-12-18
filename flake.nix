@@ -26,6 +26,11 @@
 
     cnvim.url = "github:conorhk/vimrc";
     cnvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    script-directory = {
+      url ="github:conorhk/sd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, home-manager, ...}@inputs:

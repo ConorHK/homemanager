@@ -6,8 +6,8 @@ with lib;
     ./atuin.nix
     ./bat.nix
     ./cnvim.nix
-    ./dust.nix
     ./duf.nix
+    ./dust.nix
     ./eza.nix
     ./fzf.nix
     ./git.nix
@@ -16,6 +16,7 @@ with lib;
     ./less.nix
     ./nix-your-shell.nix
     ./ripgrep.nix
+    ./script-directory.nix
     ./ssh.nix
     ./tmux.nix
     ./wget.nix
