@@ -27,55 +27,55 @@ in
         ico_behind="▼ "
         ico_diverged="↕ "
         color_root="%F{red}"
-        color_user="%F{3}"
+        color_user="%F{yellow}"
         color_normal="%F{white}"
-        color_git="%F{13}"
+        color_git="%F{green}"
 
-  # allow functions in the prompt
+        # allow functions in the prompt
         setopt PROMPT_SUBST
         autoload -Uz colors && colors
 
-  # colors for permissions
+        # colors for permissions
         if [[ "$EUID" -ne "0" ]]
           then
             color_prompt="''${color_user}"
         else
           color_prompt="''${color_root}"
-            fi
+        fi
 
-            git_prompt() {
-              repo=$(git rev-parse --is-inside-work-tree 2> /dev/null)
-                if [[ ! "$repo" || "$repo" = false ]]; then
-                  return
-                    fi
+        git_prompt() {
+          repo=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+          if [[ ! "$repo" || "$repo" = false ]]; then
+            return
+          fi
 
-                    bare_repo=$(git rev-parse --is-bare-repository 2> /dev/null)
-                    if [ "$bare_repo" = true ]; then
-                      return
-                        fi
+          bare_repo=$(git rev-parse --is-bare-repository 2> /dev/null)
+          if [ "$bare_repo" = true ]; then
+            return
+          fi
 
-                        branch="$(git branch | grep "^*" | tr -d "*" | tr -d " ")"
-                        if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
-                          color_git="%F{red}"
-                            fi
+          branch="$(git branch | grep "^*" | tr -d "*" | tr -d " ")"
+          if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
+            color_git="%F{red}"
+          fi
 
-                            stat=$(git status | sed -n 2p)
-              case "$stat" in
-                            *ahead*)
-                              stat="$ico_ahead"
-                              ;;
-                            *behind*)
-                              stat="$ico_behind"
-                              ;;
-                            *diverged*)
-                              stat="$ico_diverged"
-                              ;;
-                            *)
-                              stat=""
-                              ;;
-                            esac
-                              echo "on %B"''${color_git}''${branch} ''${stat} "%b"
-            }
+          stat=$(git status | sed -n 2p)
+          case "$stat" in
+            *ahead*)
+              stat="$ico_ahead"
+              ;;
+            *behind*)
+              stat="$ico_behind"
+              ;;
+            *diverged*)
+              stat="$ico_diverged"
+              ;;
+            *)
+              stat=""
+              ;;
+            esac
+              echo "on %B"''${color_git}''${branch} ''${stat}"%b"
+        }
 
       ssh_prompt() {
         [ "$SSH_CLIENT" ] && echo "''${color_prompt}[$(hostname -s)] "
