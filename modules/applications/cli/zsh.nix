@@ -101,6 +101,18 @@ in
         share = true;
         path = "${config.xdg.dataHome}/zsh/history";
       };
+
+      plugins = [
+        {
+          name = "zsh-vim-mode";
+          src = "${pkgs.zsh-vi-mode}/share/zsh-vi-mode";
+        }
+        {
+          name = "fast-syntax-highlighting";
+          src = pkgs.zsh-fast-syntax-highlighting.src;
+        }
+      ];
+
     };
   };
 }
