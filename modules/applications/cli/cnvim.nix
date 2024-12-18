@@ -16,15 +16,15 @@ in
   };
 
   config = mkIf cfg.enable {
-      home.sessionVariables.EDITOR = "cnvim";
+    home.sessionVariables.EDITOR = "cnvim";
 
-      cnvim = {
-        enable = true;
-        packageNames = [ "cnvim" ];
-      };
+    cnvim = {
+      enable = true;
+      packageNames = [ "cnvim" ];
+    };
 
-      programs.zsh.shellAliases = {
-        vim = "cnvim";
+    programs.zsh.shellAliases = {
+      vim = "cnvim";
     };
   };
 }

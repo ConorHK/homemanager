@@ -78,7 +78,7 @@ in
         }
 
       ssh_prompt() {
-        [ "$SSH_CLIENT" ] && echo "''${color_prompt}[$(hostname -s)] "
+        [ "$SSH_CLIENT" ] && echo "''${color_prompt}[''${HOSTROLE:-$(hostname -s)}] "
       }
 
       nix_prompt() {
