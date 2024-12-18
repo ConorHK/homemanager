@@ -21,6 +21,7 @@ in
         enable = true;
         aggressiveResize = true;
         escapeTime = 50;
+        baseIndex = 1;
         clock24 = true;
         keyMode = "vi";
         focusEvents = true;
