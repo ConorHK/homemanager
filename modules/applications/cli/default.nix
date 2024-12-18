@@ -13,6 +13,7 @@ with lib;
     ./htop.nix
     ./jq.nix
     ./less.nix
+    ./nix-your-shell.nix
     ./ripgrep.nix
     ./ssh.nix
     ./tmux.nix

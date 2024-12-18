@@ -34,6 +34,7 @@ with lib;
           wget.enable = mkDefault true;
           zoxide.enable = mkDefault true;
           zsh.enable = mkDefault true;
+          nix-your-shell.enable = mkDefault true;
           git = {
             enable = mkDefault true;
             defaultBranch = mkDefault "main";
