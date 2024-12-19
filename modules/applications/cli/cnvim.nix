@@ -1,8 +1,15 @@
-{config, inputs, lib, pkgs, specialArgs, ...}:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  specialArgs,
+  ...
+}:
 let
   cfg = config.host.home.applications.cnvim;
 in
-  with lib;
+with lib;
 {
   imports = [ inputs.cnvim.homeModule ];
   options = {

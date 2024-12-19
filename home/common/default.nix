@@ -1,4 +1,11 @@
-{ config, inputs, lib, pkgs, specialArgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  specialArgs,
+  ...
+}:
 
 let
   if-exists = f: builtins.pathExists f;
@@ -7,7 +14,8 @@ let
 in
 with lib;
 {
-  imports = [
+  imports =
+    [
       ./homemanager.nix
       ./locale.nix
       ./nix.nix
@@ -17,44 +25,43 @@ with lib;
       ./users/${username}.nix
     ];
 
-    host = {
-      home = {
-        applications = {
-          atuin.enable = mkDefault true;
-          bat.enable = mkDefault true;
-          cnvim.enable = mkDefault true;
-          duf.enable = mkDefault true;
-          dust.enable = mkDefault true;
-          eza.enable = mkDefault true;
-          fzf.enable = mkDefault true;
-          htop.enable = mkDefault true;
-          jq.enable = mkDefault true;
-          less.enable = mkDefault true;
-          networking-tools.enable = mkDefault true;
-          nix-your-shell.enable = mkDefault true;
-          python.enable = mkDefault true;
-          ripgrep.enable = mkDefault true;
-          script-directory.enable = mkDefault true;
-          tmux.enable = mkDefault true;
-          wget.enable = mkDefault true;
-          zoxide.enable = mkDefault true;
-          zsh.enable = mkDefault true;
-          git = {
-            enable = mkDefault true;
-            defaultBranch = mkDefault "main";
-            email = mkDefault "foo";
-          };
+  host = {
+    home = {
+      applications = {
+        atuin.enable = mkDefault true;
+        bat.enable = mkDefault true;
+        cnvim.enable = mkDefault true;
+        duf.enable = mkDefault true;
+        dust.enable = mkDefault true;
+        eza.enable = mkDefault true;
+        fzf.enable = mkDefault true;
+        htop.enable = mkDefault true;
+        jq.enable = mkDefault true;
+        less.enable = mkDefault true;
+        networking-tools.enable = mkDefault true;
+        nix-your-shell.enable = mkDefault true;
+        python.enable = mkDefault true;
+        ripgrep.enable = mkDefault true;
+        script-directory.enable = mkDefault true;
+        tmux.enable = mkDefault true;
+        wget.enable = mkDefault true;
+        zoxide.enable = mkDefault true;
+        zsh.enable = mkDefault true;
+        git = {
+          enable = mkDefault true;
+          defaultBranch = mkDefault "main";
+          email = mkDefault "foo";
         };
       };
     };
+  };
 
-
-    home = {
-      packages = with pkgs;
-        (lib.optionals pkgs.stdenv.isLinux
-        [
-          psmisc
-          strace
-        ]);
-    };
+  home = {
+    packages =
+      with pkgs;
+      (lib.optionals pkgs.stdenv.isLinux [
+        psmisc
+        strace
+      ]);
+  };
 }

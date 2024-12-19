@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.eza;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.eza = {

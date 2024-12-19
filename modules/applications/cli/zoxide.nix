@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.zoxide;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.zoxide = {
@@ -16,11 +21,11 @@ in
   };
 
   config = mkIf cfg.enable {
-     programs = {
-       zoxide = {
-         enable = true;
-         enableZshIntegration = true;
-       };
-     };
+    programs = {
+      zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+    };
   };
 }

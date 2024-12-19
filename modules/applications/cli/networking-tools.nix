@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.networking-tools;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.networking-tools = {
@@ -16,12 +21,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs;
-      [
-        netcat
-        sshuttle
-        dig
-        net-snmp
-      ];
+    home.packages = with pkgs; [
+      netcat
+      sshuttle
+      dig
+      net-snmp
+    ];
   };
 }

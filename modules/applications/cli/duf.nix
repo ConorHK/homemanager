@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.duf;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.duf = {
@@ -17,6 +22,8 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ duf ];
-    programs.zsh.shellAliases = { df = "duf"; };
+    programs.zsh.shellAliases = {
+      df = "duf";
+    };
   };
 }

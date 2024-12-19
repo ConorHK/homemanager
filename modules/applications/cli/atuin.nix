@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.atuin;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.atuin = {
@@ -25,27 +30,27 @@ in
         filter_mode_shell_up_key_binding = "workspace";
         keymap_mode = "vim-normal";
         common_subcommands = [
-            "apt"
-            "cargo"
-            "composer"
-            "dnf"
-            "docker"
-            "git"
-            "go"
-            "ip"
-            "kubectl"
-            "nix"
-            "nmcli"
-            "npm"
-            "pecl"
-            "pnpm"
-            "podman"
-            "port"
-            "systemctl"
-            "tmux"
-            "yarn"
-            "brazil"
-          ];
+          "apt"
+          "cargo"
+          "composer"
+          "dnf"
+          "docker"
+          "git"
+          "go"
+          "ip"
+          "kubectl"
+          "nix"
+          "nmcli"
+          "npm"
+          "pecl"
+          "pnpm"
+          "podman"
+          "port"
+          "systemctl"
+          "tmux"
+          "yarn"
+          "brazil"
+        ];
       };
     };
   };

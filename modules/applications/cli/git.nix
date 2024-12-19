@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.git;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.git = {
@@ -32,14 +37,18 @@ in
         userName = "Conor Knowles";
         userEmail = cfg.email;
         extraConfig = {
-          init = { defaultBranch = cfg.defaultBranch; };
-          pull = { rebase = true; };
+          init = {
+            defaultBranch = cfg.defaultBranch;
+          };
+          pull = {
+            rebase = true;
+          };
         };
         lfs.enable = true;
         difftastic = {
           enable = true;
           background = "dark";
-          };
+        };
       };
 
       zsh.shellAliases = {

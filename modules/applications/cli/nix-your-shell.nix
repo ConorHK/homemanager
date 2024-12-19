@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.nix-your-shell;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.nix-your-shell = {
@@ -19,4 +24,3 @@ in
     programs.nix-your-shell.enable = true;
   };
 }
-

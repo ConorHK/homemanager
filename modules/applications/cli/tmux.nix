@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.tmux;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.tmux = {
@@ -25,7 +30,7 @@ in
         clock24 = true;
         keyMode = "vi";
         focusEvents = true;
-        mouse = true ;
+        mouse = true;
         newSession = true;
         prefix = "C-t";
         sensibleOnTop = true;

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.dust;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.dust = {
@@ -16,13 +21,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs;
-      [
-        du-dust
-      ];
+    home.packages = with pkgs; [
+      du-dust
+    ];
     programs = {
       zsh.shellAliases = {
-        du = "dust" ;
+        du = "dust";
       };
     };
   };

@@ -3,6 +3,6 @@ with lib;
 {
   home.sessionVariables = {
     HOSTROLE = "dev";
-    BROWSER = "echo";  # print URLs
+    BROWSER = "echo"; # print URLs
   };
 }

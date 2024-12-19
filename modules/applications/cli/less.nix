@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.less;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.less = {
@@ -18,14 +23,13 @@ in
   config = mkIf cfg.enable {
     programs = {
       less = {
-         enable = true;
-       };
+        enable = true;
+      };
       zsh = {
         sessionVariables = {
-          LESSHISTFILE="$XDG_CACHE_HOME/less/history";
+          LESSHISTFILE = "$XDG_CACHE_HOME/less/history";
         };
       };
     };
   };
 }
-

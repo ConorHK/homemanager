@@ -1,4 +1,11 @@
-{ inputs, config, lib, pkgs, specialArgs, ... }:
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  specialArgs,
+  ...
+}:
 let
   inherit (specialArgs) username;
 in
@@ -7,7 +14,12 @@ with lib;
   home = {
     activation = {
       report-changes = ''
-        PATH=$PATH:${lib.makeBinPath [ pkgs.nvd pkgs.nix ]}
+        PATH=$PATH:${
+          lib.makeBinPath [
+            pkgs.nvd
+            pkgs.nix
+          ]
+        }
         if [ ! -d /nix/var/nix/profiles/per-user/$USER ]; then
             if [ -d $HOME/.local/state/nix/profiles ] ; then
                 PROFILE_PATH="$HOME/.local/state/nix/profiles"
@@ -49,7 +61,10 @@ with lib;
   nix = {
     settings = {
       auto-optimise-store = mkDefault true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       use-xdg-base-directories = mkDefault true;
       warn-dirty = mkDefault false;
       trusted-users = [ username ];
@@ -73,4 +88,3 @@ with lib;
     };
   };
 }
-

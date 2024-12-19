@@ -1,9 +1,9 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 
 let
   cfg = config.host.home.applications.ssh;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.ssh = {
@@ -31,7 +31,7 @@ in
     programs = {
       ssh = {
         enable = true;
-        matchBlocks =  {
+        matchBlocks = {
           "192.168.1.*" = mkIf (cfg.ignore."192.168.1.0/24") {
             checkHostIP = false;
             extraOptions = {

@@ -1,9 +1,14 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.host.home.applications.wget;
 in
-  with lib;
+with lib;
 {
   options = {
     host.home.applications.wget = {
@@ -17,17 +22,16 @@ in
 
   config = mkIf cfg.enable {
     home = {
-        packages = with pkgs;
-          [
-            wget
-          ];
+      packages = with pkgs; [
+        wget
+      ];
     };
     programs = {
-        zsh = {
-          shellAliases = {
-            wget = "wget --hsts-file=$XDG_DATA_HOME/wget-hsts" ; # Send history to a sane area
-          };
+      zsh = {
+        shellAliases = {
+          wget = "wget --hsts-file=$XDG_DATA_HOME/wget-hsts"; # Send history to a sane area
         };
+      };
     };
   };
 }
