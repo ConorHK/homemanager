@@ -14,6 +14,7 @@ with lib;
     ./htop.nix
     ./jq.nix
     ./less.nix
+    ./networking-tools.nix
     ./nix-your-shell.nix
     ./ripgrep.nix
     ./script-directory.nix

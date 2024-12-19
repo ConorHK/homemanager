@@ -30,6 +30,7 @@ with lib;
           htop.enable = mkDefault true;
           jq.enable = mkDefault true;
           less.enable = mkDefault true;
+          networking-tools.enable = mkDefault true;
           nix-your-shell.enable = mkDefault true;
           ripgrep.enable = mkDefault true;
           script-directory.enable = mkDefault true;
