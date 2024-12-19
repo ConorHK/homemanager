@@ -15,6 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
+   # TODO: remove workaround
+    home.sessionVariables.__HM_SESS_VARS_SOURCED = "";
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
