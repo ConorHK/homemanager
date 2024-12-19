@@ -360,11 +360,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1734529681,
-        "narHash": "sha256-pe/fHd6nuz8nxwyVsLDDilgy+0rXJ1iYhCFojFlV8QE=",
+        "lastModified": 1734598122,
+        "narHash": "sha256-Rb1ikeJK6HoeXjf3sA7C0OzMQqoMypWgqEqCkkdh8VM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "29cbfd0aad3f30ed30312668b3d8dca522175349",
+        "rev": "a1f08d0a326e1cb3d747a80053a45a95d833032a",
         "type": "github"
       },
       "original": {
@@ -429,7 +429,8 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
-        "script-directory": "script-directory"
+        "script-directory": "script-directory",
+        "sops-nix": "sops-nix"
       }
     },
     "script-directory": {
@@ -449,6 +450,26 @@
       "original": {
         "owner": "conorhk",
         "repo": "sd",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734546875,
+        "narHash": "sha256-6OvJbqQ6qPpNw3CA+W8Myo5aaLhIJY/nNFDk3zMXLfM=",
+        "owner": "mic92",
+        "repo": "sops-nix",
+        "rev": "ed091321f4dd88afc28b5b4456e0a15bd8374b4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

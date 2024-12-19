@@ -33,6 +33,7 @@ with lib;
           nix-your-shell.enable = mkDefault true;
           ripgrep.enable = mkDefault true;
           script-directory.enable = mkDefault true;
+          secrets.enable = mkDefault true;
           tmux.enable = mkDefault true;
           wget.enable = mkDefault true;
           zoxide.enable = mkDefault true;

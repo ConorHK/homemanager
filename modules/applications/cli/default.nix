@@ -17,6 +17,7 @@ with lib;
     ./nix-your-shell.nix
     ./ripgrep.nix
     ./script-directory.nix
+    ./secrets.nix
     ./ssh.nix
     ./tmux.nix
     ./wget.nix

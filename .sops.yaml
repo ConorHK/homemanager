@@ -1,0 +1,7 @@
+keys:
+  - &user_knoconor age1zfadvf0jln6erkkq8hccgfr6eze8fafq7yzal8ls3llgjtqvtv8srx6fxl
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *user_knoconor

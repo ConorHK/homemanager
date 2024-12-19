@@ -31,6 +31,11 @@
       url ="github:conorhk/sd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, home-manager, ...}@inputs:
