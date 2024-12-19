@@ -32,6 +32,7 @@ with lib;
           less.enable = mkDefault true;
           networking-tools.enable = mkDefault true;
           nix-your-shell.enable = mkDefault true;
+          python.enable = mkDefault true;
           ripgrep.enable = mkDefault true;
           script-directory.enable = mkDefault true;
           tmux.enable = mkDefault true;

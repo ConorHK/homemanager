@@ -3,5 +3,6 @@ with lib;
 {
   imports = [
     ./applications/cli
+    ./applications/programming
   ];
 }
