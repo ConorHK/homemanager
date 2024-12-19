@@ -31,6 +31,7 @@ with lib;
         atuin.enable = mkDefault true;
         bat.enable = mkDefault true;
         cnvim.enable = mkDefault true;
+        comma.enable = mkDefault true;
         duf.enable = mkDefault true;
         dust.enable = mkDefault true;
         eza.enable = mkDefault true;

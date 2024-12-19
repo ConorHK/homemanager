@@ -20,12 +20,22 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    comma.url = "github:nix-community/comma";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    cnvim.url = "github:conorhk/vimrc";
-    cnvim.inputs.nixpkgs.follows = "nixpkgs";
+    cnvim = {
+      url = "github:conorhk/vimrc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     script-directory = {
       url = "github:conorhk/sd";
@@ -50,6 +60,7 @@
         import nixpkgs {
           overlays = [
             inputs.nur.overlays.default
+            inputs.comma.overlays.default
             outputs.overlays.additions
             outputs.overlays.modifications
             outputs.overlays.unstable-packages
@@ -104,5 +115,8 @@
           };
         };
       };
+
+    inherit home-manager;
+    inherit (home-manager) packages;
     };
 }

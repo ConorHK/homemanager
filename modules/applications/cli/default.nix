@@ -6,6 +6,7 @@ with lib;
     ./atuin.nix
     ./bat.nix
     ./cnvim.nix
+    ./comma.nix
     ./duf.nix
     ./dust.nix
     ./eza.nix
