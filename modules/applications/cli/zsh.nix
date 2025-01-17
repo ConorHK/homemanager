@@ -24,6 +24,7 @@ with lib;
     home.sessionVariables.__HM_SESS_VARS_SOURCED = "";
 
     programs.zsh = {
+      sessionVariables.__HM_SESS_VARS_SOURCED = "";
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = false;
