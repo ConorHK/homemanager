@@ -25,6 +25,8 @@ with lib;
       enable = true;
       settings = {
         sync_address = "";
+        invert = "true";
+        inline_hight = 10;
         dialect = "uk";
         update_check = "false";
         filter_mode_shell_up_key_binding = "workspace";
