@@ -114,8 +114,15 @@
             inherit inputs outputs;
           };
         };
+        "server" = HomeConfiguration {
+          extraSpecialArgs = {
+            username = "conor";
+            role = "server";
+            system = "x86_64-linux";
+            inherit inputs outputs;
+          };
+        };
       };
-
     inherit home-manager;
     inherit (home-manager) packages;
     };
