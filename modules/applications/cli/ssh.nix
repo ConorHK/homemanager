@@ -32,6 +32,11 @@ with lib;
       ssh = {
         enable = true;
         matchBlocks = {
+          "*" = {
+            extraOptions = {
+              "IgnoreUnknown" = "gssapikexalgorithms,gssapiauthentication,gssapidelegatecredentials";
+            };
+          };
           "192.168.1.*" = mkIf (cfg.ignore."192.168.1.0/24") {
             checkHostIP = false;
             extraOptions = {
