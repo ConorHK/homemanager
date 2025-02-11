@@ -116,7 +116,7 @@
         };
         "server" = HomeConfiguration {
           extraSpecialArgs = {
-            username = "conor";
+            username = "mustang";
             role = "server";
             system = "x86_64-linux";
             inherit inputs outputs;

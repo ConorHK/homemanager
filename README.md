@@ -9,10 +9,10 @@ nix homemanager setup
 0. Clone repo
 1. Initialize Home Manager
 ```
-nix --extra-experimental-features "nix-command flakes" run home-manager/master --init
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager && nix-channel --update
 ```
 
 2. Activate the config
 ```
-home-manager switch --flake .#<role> --extra-experimental-features 'nix-command flakes'
+noglob home-manager switch --flake .#<role> --extra-experimental-features 'nix-command flakes'
 ```
