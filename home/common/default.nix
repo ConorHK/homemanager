@@ -36,6 +36,7 @@ with lib;
         dust.enable = mkDefault true;
         eza.enable = mkDefault true;
         fzf.enable = mkDefault true;
+        gpg.enable = mkDefault true;
         htop.enable = mkDefault true;
         jq.enable = mkDefault true;
         less.enable = mkDefault true;

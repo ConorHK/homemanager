@@ -12,6 +12,7 @@ with lib;
     ./eza.nix
     ./fzf.nix
     ./git.nix
+    ./gpg.nix
     ./htop.nix
     ./jq.nix
     ./less.nix
