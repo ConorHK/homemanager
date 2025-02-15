@@ -71,7 +71,7 @@
       HomeConfiguration =
         args:
         home-manager.lib.homeManagerConfiguration (
-          rec {
+          {
             modules = [
               (import ./home)
               (import ./modules)
@@ -92,8 +92,11 @@
         "aarch64-linux"
         "aarch64-darwin"
       ]
-      (system: rec {
+      (system: {
         legacyPackages = pkgsForSystem system;
+        devShells = import ./shell.nix { 
+          pkgs = pkgsForSystem system; 
+        };
       })
     // {
       overlays = import ./overlays { inherit inputs; };
