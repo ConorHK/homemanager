@@ -30,6 +30,7 @@ with lib;
       applications = {
         atuin.enable = mkDefault true;
         bat.enable = mkDefault true;
+        btop.enable = mkDefault true;
         cnvim.enable = mkDefault true;
         comma.enable = mkDefault true;
         duf.enable = mkDefault true;
@@ -37,7 +38,6 @@ with lib;
         eza.enable = mkDefault true;
         fzf.enable = mkDefault true;
         gpg.enable = mkDefault true;
-        htop.enable = mkDefault true;
         jq.enable = mkDefault true;
         less.enable = mkDefault true;
         networking-tools.enable = mkDefault true;
