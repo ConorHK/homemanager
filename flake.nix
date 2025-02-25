@@ -125,6 +125,14 @@
             inherit inputs outputs;
           };
         };
+        "work-mac" = HomeConfiguration {
+          extraSpecialArgs = {
+            username = "knoconor";
+            role = "work-mac";
+            system = "aarch64-darwin";
+            inherit inputs outputs;
+          };
+        };
       };
     inherit home-manager;
     inherit (home-manager) packages;

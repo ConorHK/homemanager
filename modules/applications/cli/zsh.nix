@@ -108,7 +108,7 @@ with lib;
         ignoreSpace = true;
         size = 10000;
         share = true;
-        path = "${config.xdg.dataHome}/zsh/history";
+        path = mkDefault "${config.xdg.dataHome}/zsh/history";
       };
 
       plugins = [
