@@ -44,6 +44,7 @@ with lib;
       fzf.enable = true;
       htop.enable = true;
       less.enable = true;
+      nh.enable = true;
       ssh.enable = mkDefault true;
       zoxide.enable = true;
     };

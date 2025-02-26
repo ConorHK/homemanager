@@ -13,5 +13,5 @@ nix homemanager setup
 
 2. Activate the config
 ```
-noglob home-manager switch --flake .#<role>
+nh home switch .
 ```

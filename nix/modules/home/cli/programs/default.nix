@@ -16,6 +16,7 @@
     ./jq
     ./less
     ./networking-tools
+    ./nh
     ./nix-your-shell
     ./ripgrep
     ./script-directory
