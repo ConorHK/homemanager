@@ -5,17 +5,15 @@
   ...
 }:
 let
-  cfg = config.host.home.languages.python;
+  cfg = config.languages.python;
 in
 with lib;
 {
-  options = {
-    host.home.applications.python = {
-      enable = mkOption {
-        default = false;
-        type = with types; bool;
-        description = "Python programming language with dependencies";
-      };
+  options.languages.python = {
+    enable = mkOption {
+      default = false;
+      type = with types; bool;
+      description = "enable python programming language with dependencies";
     };
   };
 
