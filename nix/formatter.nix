@@ -13,8 +13,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
 
   programs = {
     # Nix
-    alejandra.enable = true;
-    nixfmt-rfc-style.enable = true;
+    nixfmt.enable = true;
     deadnix.enable = true;
     statix.enable = true;
   };
