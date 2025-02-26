@@ -16,11 +16,17 @@
   };
 
   inputs = {
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     comma.url = "github:nix-community/comma";
+    blueprint.url = "github:numtide/blueprint";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -43,98 +49,10 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      flake-utils,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
-
-      pkgsForSystem =
-        system:
-        import nixpkgs {
-          overlays = [
-            inputs.nur.overlays.default
-            inputs.comma.overlays.default
-            outputs.overlays.additions
-            outputs.overlays.modifications
-            outputs.overlays.unstable-packages
-          ];
-          inherit system;
-        };
-
-      HomeConfiguration =
-        args:
-        home-manager.lib.homeManagerConfiguration (
-          {
-            modules = [
-              (import ./home)
-              (import ./modules)
-            ];
-            extraSpecialArgs = {
-
-            };
-            pkgs = pkgsForSystem (args.system or "x86_64-linux");  # need to change for darwin, seems to be broken
-          }
-          // {
-            inherit (args) extraSpecialArgs;
-          }
-        );
-    in
-    flake-utils.lib.eachSystem
-      [
-        "x86_64-linux"
-        "aarch64-linux"
-        "aarch64-darwin"
-      ]
-      (system: {
-        legacyPackages = pkgsForSystem system;
-        devShells = import ./shell.nix { 
-          pkgs = pkgsForSystem system; 
-        };
-      })
-    // {
-      overlays = import ./overlays { inherit inputs; };
-      homeConfigurations = {
-        "dev-dsk" = HomeConfiguration {
-          extraSpecialArgs = {
-            username = "knoconor";
-            role = "dev-dsk";
-            system = "x86_64-linux";
-            inherit inputs outputs;
-          };
-        };
-        "desktop" = HomeConfiguration {
-          extraSpecialArgs = {
-            username = "conor";
-            role = "desktop";
-            system = "x86_64-linux";
-            inherit inputs outputs;
-          };
-        };
-        "server" = HomeConfiguration {
-          extraSpecialArgs = {
-            username = "mustang";
-            role = "server";
-            system = "x86_64-linux";
-            inherit inputs outputs;
-          };
-        };
-        "work-mac" = HomeConfiguration {
-          extraSpecialArgs = {
-            username = "knoconor";
-            role = "work-mac";
-            system = "aarch64-darwin";
-            inherit inputs outputs;
-          };
-        };
-      };
-    inherit home-manager;
-    inherit (home-manager) packages;
+  outputs = inputs:
+    inputs.blueprint {
+      inherit inputs;
+      prefix = "nix/";
+      systems = ["x86_64-linux" "aarch64-darwin"];
     };
 }
