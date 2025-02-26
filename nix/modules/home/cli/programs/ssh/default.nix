@@ -18,11 +18,20 @@ in {
         options = {
           hostname = lib.mkOption {
             type = lib.types.str;
-            description = "The hostname or IP address of the SSH host.";
+            description = "The hostname or IP address of the SSH host";
           };
           identityFile = lib.mkOption {
             type = lib.types.str;
-            description = "The path to the identity file for the SSH host.";
+            description = "The path to the identity file for the SSH host";
+            default = "~/.ssh/id_ed25519";
+          };
+          user = lib.mkOption {
+            type = lib.types.str;
+            description = "The default user to log in with";
+          };
+          port = lib.mkOption {
+            type = lib.types.int;
+            description = "The default port to use";
           };
         };
       });
