@@ -1,8 +1,14 @@
-{ lib, ... }:
+{ lib, specialArgs, ... }:
+let
+  inherit (specialArgs) username;
+in
 with lib;
 {
-  home.sessionVariables = {
-    HOSTROLE = "dev";
-    BROWSER = "echo"; # print URLs
+  home = {
+    homeDirectory = "/home/${username}";
+    sessionVariables = {
+      HOSTROLE = "dev";
+      BROWSER = "echo"; # print URLs
+    };
   };
 }

@@ -11,7 +11,6 @@ with lib;
 {
   home = {
     username = "knoconor";
-    homeDirectory = "/home/knoconor";
     sessionVariables = {
       BRAZILPYTHON_FAST_FAIL = "true";
       BRAZILPYTHON_I_KNOW_THAT_I_NEED_TO_READ_THE_ERROR_MESSAGE_CAREFULLY_AND_CHECK_THE_FAQ = "true";

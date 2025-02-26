@@ -79,7 +79,7 @@
             extraSpecialArgs = {
 
             };
-            pkgs = pkgsForSystem (args.system or "x86_64-linux");
+            pkgs = pkgsForSystem (args.system or "x86_64-linux");  # need to change for darwin, seems to be broken
           }
           // {
             inherit (args) extraSpecialArgs;
