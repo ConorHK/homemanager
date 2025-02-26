@@ -33,6 +33,7 @@ with lib;
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       mergiraf
+      difftastic
     ];
     programs = {
       git = {
@@ -78,10 +79,6 @@ with lib;
           "*.py merge=mergiraf"
         ];
         lfs.enable = true;
-        difftastic = {
-          enable = true;
-          background = "dark";
-        };
       };
 
       zsh.shellAliases = {
@@ -91,7 +88,8 @@ with lib;
         gaa = "git add --all";
         gp = "git push";
         gl = "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-        gd = "git diff";
+        gd = "git -c diff.external=difft diff";
+        grc = "git -c diff.external=difft show --ext-diff";
       };
     };
   };
