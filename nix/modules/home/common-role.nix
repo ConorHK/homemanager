@@ -6,7 +6,8 @@
   pkgs,
   ...
 }:
-with lib; {
+with lib;
+{
   nix = {
     settings = {
       auto-optimise-store = mkDefault true;
@@ -16,11 +17,11 @@ with lib; {
       ];
       use-xdg-base-directories = mkDefault true;
       warn-dirty = mkDefault false;
-      trusted-users = [config.home.username];
+      trusted-users = [ config.home.username ];
     };
 
     package = pkgs.nixVersions.stable;
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
   };
 
   nixpkgs = {
@@ -37,7 +38,7 @@ with lib; {
     };
   };
 
-  home.packages = with pkgs; [home-manager];
+  home.packages = with pkgs; [ home-manager ];
 
   cli = {
     shells.zsh.enable = true;

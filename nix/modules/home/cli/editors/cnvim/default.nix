@@ -4,10 +4,12 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.editors.cnvim;
-in {
-  imports = [inputs.cnvim.homeModule];
+in
+{
+  imports = [ inputs.cnvim.homeModule ];
   options.cli.editors.cnvim = {
     enable = mkOption {
       default = false;
@@ -21,7 +23,7 @@ in {
 
     cnvim = {
       enable = true;
-      packageNames = ["cnvim"];
+      packageNames = [ "cnvim" ];
     };
 
     programs.zsh.shellAliases = {

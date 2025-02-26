@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.shells.zsh;
-in {
+in
+{
   options.cli.shells.zsh = {
     enable = mkOption {
       default = false;

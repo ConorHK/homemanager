@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.programs.ripgrep;
-in {
+in
+{
   options.cli.programs.ripgrep = {
     enable = mkOption {
       default = false;

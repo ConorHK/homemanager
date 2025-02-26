@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.multiplexers.tmux;
-in {
+in
+{
   options.cli.multiplexers.tmux = {
     enable = mkOption {
       default = false;

@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.ndots; let
+with lib.ndots;
+let
   cfg = config.ndots.user;
-in {
+in
+{
   options.ndots.user = {
     enable = mkOpt types.bool false "Whether to configure the user account.";
     home = mkOpt (types.nullOr types.str) "/home/${cfg.name}" "The user's home directory.";

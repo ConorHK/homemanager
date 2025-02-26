@@ -4,9 +4,11 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.programs.networking-tools;
-in {
+in
+{
   options.cli.programs.networking-tools = {
     enable = mkOption {
       default = false;

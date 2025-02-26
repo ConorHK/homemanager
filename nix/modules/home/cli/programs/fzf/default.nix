@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.programs.fzf;
-in {
+in
+{
   options.cli.programs.fzf = {
     enable = mkOption {
       default = false;

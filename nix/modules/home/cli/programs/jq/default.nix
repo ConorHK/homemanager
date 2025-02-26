@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.cli.programs.jq;
-in {
+in
+{
   options.cli.programs.jq = {
     enable = mkOption {
       default = false;
