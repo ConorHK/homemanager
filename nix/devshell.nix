@@ -1,6 +1,4 @@
-{ pkgs, perSystem }:
-let
-in
+{pkgs}:
 pkgs.mkShellNoCC {
   packages = [
     pkgs.home-manager

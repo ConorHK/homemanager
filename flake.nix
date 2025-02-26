@@ -16,6 +16,11 @@
   };
 
   inputs = {
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -44,9 +49,10 @@
     };
   };
 
-  outputs = inputs: inputs.blueprint { 
-    inherit inputs; 
-    prefix = "nix/";
-    systems = [ "x86_64-linux" "aarch64-darwin" ];
-  };
+  outputs = inputs:
+    inputs.blueprint {
+      inherit inputs;
+      prefix = "nix/";
+      systems = ["x86_64-linux" "aarch64-darwin"];
+    };
 }

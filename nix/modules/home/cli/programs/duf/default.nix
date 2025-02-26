@@ -4,13 +4,9 @@
   pkgs,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.duf;
-in
-{
+in {
   options.cli.programs.duf = {
     enable = mkOption {
       default = false;
@@ -20,7 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ duf ];
+    home.packages = with pkgs; [duf];
     programs.zsh.shellAliases = {
       df = "duf";
     };

@@ -5,12 +5,10 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.cli.programs.comma;
-in
-{
-  imports = [ inputs.nix-index-database.hmModules.nix-index ];
+in {
+  imports = [inputs.nix-index-database.hmModules.nix-index];
 
   options.cli.programs.comma = {
     enable = mkOption {
@@ -21,6 +19,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ comma ];
+    home.packages = with pkgs; [comma];
   };
 }

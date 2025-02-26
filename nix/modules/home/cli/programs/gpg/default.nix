@@ -4,13 +4,9 @@
   pkgs,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.gpg;
-in
-{
+in {
   options.cli.programs.gpg = {
     enable = mkOption {
       default = false;
@@ -31,4 +27,3 @@ in
     };
   };
 }
-

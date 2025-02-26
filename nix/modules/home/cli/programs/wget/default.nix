@@ -4,13 +4,9 @@
   pkgs,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.wget;
-in
-{
+in {
   options.cli.programs.wget = {
     enable = mkOption {
       default = false;

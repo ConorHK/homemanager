@@ -5,11 +5,9 @@
   pkgs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.cli.programs.script-directory;
-in
-{
+in {
   options.cli.programs.script-directory = {
     enable = mkOption {
       default = false;
@@ -30,7 +28,7 @@ in
       sessionPath = [
         "${config.home.homeDirectory}/scripts/.scripts"
       ];
-      packages = [ inputs.script-directory.packages.${pkgs.system}.sd ];
+      packages = [inputs.script-directory.packages.${pkgs.system}.sd];
     };
   };
 }

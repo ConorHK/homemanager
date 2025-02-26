@@ -3,12 +3,9 @@
   lib,
   ...
 }:
-
-with lib;
-let
+with lib; let
   cfg = config.cli.programs.bat;
-in
-{
+in {
   options.cli.programs.bat = {
     enable = mkOption {
       default = false;

@@ -3,13 +3,9 @@
   lib,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.zoxide;
-in
-{
+in {
   options.cli.programs.zoxide = {
     enable = mkOption {
       default = false;

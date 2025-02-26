@@ -4,13 +4,9 @@
   pkgs,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.shells.zsh;
-in
-{
+in {
   options.cli.shells.zsh = {
     enable = mkOption {
       default = false;
@@ -118,10 +114,9 @@ in
         }
         {
           name = "fast-syntax-highlighting";
-          src = pkgs.zsh-fast-syntax-highlighting.src;
+          inherit (pkgs.zsh-fast-syntax-highlighting) src;
         }
       ];
-
     };
   };
 }

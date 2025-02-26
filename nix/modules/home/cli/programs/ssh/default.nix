@@ -1,15 +1,11 @@
-{ 
+{
   config,
   lib,
-  ... 
+  ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.ssh;
-in
-{
+in {
   options.cli.programs.ssh = with types; {
     enable = lib.mkOption {
       description = "enable ssh";

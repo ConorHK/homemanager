@@ -1,8 +1,4 @@
-{
-  flake,
-  ...
-}: 
-{
+{flake, ...}: {
   imports = [
     flake.homeModules.common-role
     flake.homeModules.development-role

@@ -4,13 +4,9 @@
   pkgs,
   ...
 }:
-
-with lib;
-
-let
+with lib; let
   cfg = config.cli.programs.dust;
-in
-{
+in {
   options.cli.programs.dust = {
     enable = mkOption {
       default = false;
