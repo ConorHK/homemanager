@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: with lib; {
+}:
+with lib; {
   imports = [
     flake.homeModules.common-role
     flake.homeModules.development-role
