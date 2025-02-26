@@ -33,6 +33,7 @@ with lib;
     home.packages = with pkgs; [
       mergiraf
       difftastic
+      git-absorb
     ];
     programs = {
       git = {
