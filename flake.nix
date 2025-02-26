@@ -22,8 +22,8 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nur.url = "github:nix-community/NUR";
     comma.url = "github:nix-community/comma";
     blueprint.url = "github:numtide/blueprint";

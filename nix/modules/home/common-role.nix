@@ -31,13 +31,6 @@ with lib;
     };
   };
 
-  programs = {
-    nix-index = {
-      enable = mkDefault true;
-      enableZshIntegration = mkDefault true;
-    };
-  };
-
   home.packages = with pkgs; [ home-manager ];
 
   cli = {
