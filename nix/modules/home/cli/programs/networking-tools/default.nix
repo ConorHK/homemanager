@@ -18,11 +18,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      netcat
-      sshuttle
-      dig
-      net-snmp
-    ];
+    home = {
+      packages = with pkgs; [
+        netcat
+        sshuttle
+        doggo
+        net-snmp
+      ];
+      shellAliases = {
+        dig = "doggo";
+      };
+    };
   };
 }
