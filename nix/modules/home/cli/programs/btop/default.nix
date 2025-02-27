@@ -4,17 +4,15 @@
   ...
 }:
 let
-  cfg = config.host.home.applications.btop;
+  cfg = config.cli.programs.btop;
 in
 with lib;
 {
-  options = {
-    host.home.applications.btop = {
-      enable = mkOption {
-        default = false;
-        type = with types; bool;
-        description = "Process monitor";
-      };
+  options.cli.programs.btop = {
+    enable = mkOption {
+      default = false;
+      type = with types; bool;
+      description = "Process monitor";
     };
   };
 
