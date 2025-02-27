@@ -8,10 +8,6 @@
 }:
 with lib;
 {
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
   nix = {
     settings = {
       auto-optimise-store = mkDefault true;
