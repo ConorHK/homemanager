@@ -36,6 +36,11 @@ in
               type = lib.types.int;
               description = "The default port to use";
             };
+            forwardAgent = lib.mkOption {
+              type = lib.types.nullOr lib.types.bool;
+              description = "Enable forward SSH agent";
+              default = null;
+            };
           };
         }
       );
