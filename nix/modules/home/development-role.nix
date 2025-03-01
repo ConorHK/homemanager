@@ -1,9 +1,5 @@
+_:
 {
-  flake,
-  ...
-}:
-{
-  languages.python.enable = true;
   cli = {
     editors.cnvim.enable = true;
     multiplexers.tmux.enable = true;
@@ -20,7 +16,4 @@
       wget.enable = true;
     };
   };
-  imports = [
-    flake.homeModules.languages
-  ];
 }
