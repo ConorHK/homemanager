@@ -8,29 +8,6 @@
 }:
 with lib;
 {
-  nix = {
-    settings = {
-      auto-optimise-store = mkDefault true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      use-xdg-base-directories = mkDefault true;
-      warn-dirty = mkDefault false;
-      trusted-users = [ config.home.username ];
-    };
-
-    package = pkgs.nixVersions.stable;
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = mkDefault true;
-      allowUnfreePredicate = _: true;
-    };
-  };
-
   home.packages = with pkgs; [ home-manager ];
 
   cli = {

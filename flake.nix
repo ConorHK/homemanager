@@ -1,20 +1,6 @@
 {
   description = "HomeManager dotfiles flake";
 
-  nixConfig = {
-    experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     treefmt-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +9,12 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    disko = {
+        url = "github:nix-community/disko";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nur.url = "github:nix-community/NUR";
     comma.url = "github:nix-community/comma";

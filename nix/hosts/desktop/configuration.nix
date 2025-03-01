@@ -10,9 +10,61 @@ with lib;
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./disks.nix
+      inputs.disko.nixosModules.disko
       inputs.nixos-facter-modules.nixosModules.facter
       {config.facter.reportPath = ./facter.json;}
     ];
+
+  nix = {
+    settings = {
+      auto-optimise-store = mkDefault true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      use-xdg-base-directories = mkDefault true;
+      warn-dirty = mkDefault false;
+      trusted-users = [ "conor" ];
+    };
+
+    package = pkgs.nixVersions.stable;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+  };
+
+environment.systemPackages = with pkgs; [ efibootmgr efitools efivar fwupd ];
+boot = {
+    initrd.systemd.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot = {
+        enable = true;
+        configurationLimit = 20;
+        editor = false;
+    };
+};
+
+users.users.conor = {
+    uid = 1000;
+    description = "ConorHK";
+    isNormalUser = true;
+    extraGroups = [
+        "wheel"
+        "tty"
+        "sound"
+        "networkmanager"
+        "libvirtd"
+        "input"
+        "docker"
+        "audio"
+    ];
+};
+
+  nixpkgs = {
+    config = {
+      allowUnfree = mkDefault true;
+      allowUnfreePredicate = _: true;
+    };
+  };
+
 
   networking = {
     hostName = "desktop";
