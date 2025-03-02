@@ -81,8 +81,6 @@ in {
       hideMounts = true;
       directories = [
         "/etc/NetworkManager/system-connections"
-        "/etc/nix"
-        "/etc/nixos"
         "/etc/secureboot"
         "/var/lib/flatpak"
         "/var/lib/libvirt"
