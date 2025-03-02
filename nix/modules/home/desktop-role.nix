@@ -6,8 +6,9 @@
 {
   desktop = {
     environment.gnome.enable = true;
-    # programs = {
-    # };
+    programs = {
+      alacritty.enable = true;
+    };
   };
 
   systemd.user.targets.tray = {

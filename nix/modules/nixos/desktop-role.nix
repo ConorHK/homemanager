@@ -5,8 +5,6 @@
 {
   desktop = {
     environment.gnome.enable = true;
-    # programs = {
-    # };
   };
 
   imports = [
