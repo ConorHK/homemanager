@@ -22,7 +22,6 @@ in
         enable = true;
         config = {
           pager = "less -FR";
-          theme = "TwoDark";
         };
       };
       zsh.shellAliases = {
