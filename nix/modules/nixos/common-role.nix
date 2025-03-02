@@ -16,6 +16,8 @@
     locale.enable = true;
   };
 
+  users.users.root.hashedPassword ="*";  # lock root account
+
   hardware.networking.enable = true;
   styles.stylix.enable = true;
 }

@@ -77,15 +77,21 @@ in {
         umount /mnt
       '';
     };
-
     environment.persistence."/persist" = {
       hideMounts = true;
       directories = [
-        "/.cache/nix/"
         "/etc/NetworkManager/system-connections"
-        "/var/cache/"
+        "/etc/nix"
+        "/etc/nixos"
+        "/etc/secureboot"
+        "/var/lib/flatpak"
+        "/var/lib/libvirt"
+        "/var/lib/bluetooth"
+        "/var/lib/nixos"
+        "/var/lib/pipewire"
+        "/var/cache/tailscale"
         "/var/db/sudo/"
-        "/var/lib/"
+        "/var/lib/tailscale"
       ];
       files = [
         "/etc/machine-id"
@@ -93,5 +99,11 @@ in {
         "/etc/ssh/ssh_host_ed25519_key.pub"
       ];
     };
+
+    systemd.tmpfiles.rules = [
+      "L /var/lib/NetworkManager/secret_key - - - - /persist/var/lib/NetworkManager/secret_key"
+      "L /var/lib/NetworkManager/seen-bssids - - - - /persist/var/lib/NetworkManager/seen-bssids"
+      "L /var/lib/NetworkManager/timestamps - - - - /persist/var/lib/NetworkManager/timestamps"
+    ];
   };
 }
