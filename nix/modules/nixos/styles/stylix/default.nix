@@ -50,16 +50,6 @@ with lib;
         base0E = "#af8787";
         base0F = "#87afaf";
       };
-
-      # iconTheme = {
-      #   enable = true;
-      #   package = pkgs.catppuccin-papirus-folders.override {
-      #     flavor = "mocha";
-      #     accent = "lavender";
-      #   };
-      #   dark = "Papirus-Dark";
-      # };
-      #
       # targets = {
       #   firefox = {
       #     firefoxGnomeTheme.enable = true;
@@ -82,8 +72,8 @@ with lib;
         };
 
         serif = {
-          name = "Source Serif";
-          package = pkgs.source-serif;
+          name = "Noto Serif";
+          package = pkgs.noto-fonts;
         };
 
         sansSerif = {
