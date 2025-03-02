@@ -46,6 +46,8 @@ users.users.conor = {
     uid = 1000;
     description = "ConorHK";
     isNormalUser = true;
+    initialPassword = "pass";
+    shell = pkgs.zsh;
     extraGroups = [
         "wheel"
         "tty"
