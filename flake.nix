@@ -42,6 +42,7 @@
 
     stylix.url = "github:danth/stylix";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs =
