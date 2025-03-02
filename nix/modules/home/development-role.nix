@@ -1,5 +1,4 @@
-_:
-{
+_: {
   cli = {
     editors.cnvim.enable = true;
     multiplexers.tmux.enable = true;

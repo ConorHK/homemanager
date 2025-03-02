@@ -12,8 +12,8 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     disko = {
-        url = "github:nix-community/disko";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nur.url = "github:nix-community/NUR";

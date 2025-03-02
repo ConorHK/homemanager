@@ -98,7 +98,7 @@ in
       shellAliases = {
         nix = "noglob nix";
         home-manager = "noglob home-manager";
-        upload-here = "nix-shell -E 'with (import <nixpkgs> {}); with python3; mkShell { buildInputs = [ (withPackages (p: [(pkgs.buildPythonPackage rec { pname = \"uploadserver\"; version = \"5.2.1\"; src = fetchPypi { inherit pname version; hash = \"sha256-qp2xkzLvnrnx8dHZpwlF3RjRg8jYC7WAaVS4ltJFZaU=\"; }; })]) ) ]; }' --run \"python -m uploadserver 9997\"";  # TODO: move to own package
+        upload-here = "nix-shell -E 'with (import <nixpkgs> {}); with python3; mkShell { buildInputs = [ (withPackages (p: [(pkgs.buildPythonPackage rec { pname = \"uploadserver\"; version = \"5.2.1\"; src = fetchPypi { inherit pname version; hash = \"sha256-qp2xkzLvnrnx8dHZpwlF3RjRg8jYC7WAaVS4ltJFZaU=\"; }; })]) ) ]; }' --run \"python -m uploadserver 9997\""; # TODO: move to own package
       };
 
       history = {

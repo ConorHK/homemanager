@@ -1,6 +1,4 @@
 {
-  inputs,
-  config,
   flake,
   lib,
   pkgs,
