@@ -8,6 +8,7 @@
     environment.gnome.enable = true;
     programs = {
       alacritty.enable = true;
+      firefox.enable = true;
     };
   };
 
@@ -23,9 +24,6 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     LIBSEAT_BACKEND = "logind";
   };
-
-  home.packages = with pkgs; [
-  ];
 
   imports = [
     flake.homeModules.desktop
