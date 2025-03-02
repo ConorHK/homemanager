@@ -69,9 +69,9 @@ with lib;
       #
       image = config.lib.stylix.pixel "base00";
       cursor = {
-        name = "Bibata-Modern-Classic";
-        package = pkgs.bibata-cursors;
-        size = 24;
+        name = "Quintom_Ink";
+        package = pkgs.quintom-cursor-theme;
+        size = 20;
       };
 
       fonts = {
