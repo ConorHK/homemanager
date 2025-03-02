@@ -29,6 +29,7 @@ with lib;
     bluetooth = {
       enable = true;
     };
+    logitechMouse.enable = true;
     networking.enable = true;
   };
 
