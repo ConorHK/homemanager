@@ -32,7 +32,7 @@ with lib;
     logitechMouse.enable = true;
   };
 
-  system.impermanence.enable = true;
+  # system.impermanence.enable = true;
 
   user = {
     name = "conor";
