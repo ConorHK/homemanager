@@ -2,17 +2,21 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ inputs, lib, pkgs, ... }:
+{ inputs, flake, lib, pkgs, ... }:
 
 with lib;
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       ./disks.nix
       inputs.disko.nixosModules.disko
+
       inputs.nixos-facter-modules.nixosModules.facter
       {config.facter.reportPath = ./facter.json;}
+
+      flake.nixosModules.desktop-role
     ];
 
   nix = {
@@ -59,6 +63,8 @@ users.users.conor = {
         "audio"
     ];
 };
+
+programs.zsh.enable = true;
 
   nixpkgs = {
     config = {
