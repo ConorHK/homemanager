@@ -25,6 +25,13 @@ with lib;
     flake.nixosModules.desktop-role
   ];
 
+  hardware = {
+    bluetooth = {
+      enable = true;
+    };
+    networking.enable = true;
+  };
+
   nix = {
     settings = {
       auto-optimise-store = mkDefault true;
@@ -47,6 +54,7 @@ with lib;
     efivar
     fwupd
   ];
+
   boot = {
     initrd.systemd.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -86,7 +94,6 @@ with lib;
 
   networking = {
     hostName = "desktop";
-    networkmanager.enable = true;
   };
 
   boot = {
