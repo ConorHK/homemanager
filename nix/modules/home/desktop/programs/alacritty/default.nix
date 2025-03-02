@@ -5,6 +5,7 @@
 }:
 let
   cfg = config.desktop.programs.alacritty;
+  creeperEnabled = config.system.fonts.creeper.enable;
 in
 with lib;
 {
@@ -58,6 +59,13 @@ with lib;
           cursor = {
             style = "block";
             unfocused_hollow = true;
+          };
+          font = mkIf creeperEnabled {
+            normal = {
+              family = "creeper";
+              style = "Regular";
+            };
+            size = 16;
           };
         };
       };
