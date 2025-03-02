@@ -5,7 +5,8 @@
   inputs,
   perSystem,
   ...
-}: let
+}:
+let
   cfg = config.styles.stylix;
 in
 with lib;

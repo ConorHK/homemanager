@@ -13,7 +13,6 @@
 with lib;
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     ./disks.nix
@@ -22,6 +21,7 @@ with lib;
     inputs.nixos-facter-modules.nixosModules.facter
     { config.facter.reportPath = ./facter.json; }
 
+    flake.nixosModules.common-role
     flake.nixosModules.desktop-role
   ];
 
@@ -30,61 +30,15 @@ with lib;
       enable = true;
     };
     logitechMouse.enable = true;
-    networking.enable = true;
   };
 
-  nix = {
-    settings = {
-      auto-optimise-store = mkDefault true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      use-xdg-base-directories = mkDefault true;
-      warn-dirty = mkDefault false;
-      trusted-users = [ "conor" ];
-    };
-
-    package = pkgs.nixVersions.stable;
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-  };
-
-  environment.systemPackages = with pkgs; [
-    efibootmgr
-    efitools
-    efivar
-    fwupd
-  ];
-
-  boot = {
-    initrd.systemd.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot = {
-      enable = true;
-      configurationLimit = 20;
-      editor = false;
+  user = {
+    name = "conor";
+    extraOptions = {
+      description = "Conor";
+      uid = 1000;
     };
   };
-
-  users.users.conor = {
-    uid = 1000;
-    description = "ConorHK";
-    isNormalUser = true;
-    initialPassword = "pass";
-    shell = pkgs.zsh;
-    extraGroups = [
-      "wheel"
-      "tty"
-      "sound"
-      "networkmanager"
-      "libvirtd"
-      "input"
-      "docker"
-      "audio"
-    ];
-  };
-
-  programs.zsh.enable = true;
 
   nixpkgs = {
     config = {
@@ -93,9 +47,7 @@ with lib;
     };
   };
 
-  networking = {
-    hostName = "desktop";
-  };
+  networking.hostName = "desktop";
 
   boot = {
     # TODO: https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Acquire_swap_file_offset

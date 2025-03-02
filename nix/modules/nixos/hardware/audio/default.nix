@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.hardware.audio;
-in {
+in
+{
   options.hardware.audio = {
     enable = mkOption {
       default = false;

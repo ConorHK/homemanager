@@ -1,0 +1,8 @@
+{ ... }:
+{
+  imports = [
+    ./boot
+    ./locale
+    ./nix
+  ];
+}

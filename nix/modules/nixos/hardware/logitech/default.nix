@@ -4,9 +4,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.hardware.logitechMouse;
-in {
+in
+{
   options.hardware.logitechMouse = {
     enable = mkOption {
       default = false;

@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.hardware.bluetoothctl;
-in {
+in
+{
   options.hardware.bluetoothctl = {
     enable = mkOption {
       default = false;

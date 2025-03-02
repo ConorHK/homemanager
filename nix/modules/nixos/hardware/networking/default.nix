@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.hardware.networking;
-in {
+in
+{
   options.hardware.networking = {
     enable = mkOption {
       default = false;

@@ -41,7 +41,7 @@
     };
 
     stylix.url = "github:danth/stylix";
-    catppuccin.url = "github:catppuccin/nix";
+    lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
   outputs =
