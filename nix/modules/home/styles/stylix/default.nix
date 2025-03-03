@@ -12,24 +12,23 @@ in
 with lib;
 {
   imports = with inputs; [
-    stylix.nixosModules.stylix
+    stylix.homeManagerModules.stylix
   ];
 
   options.styles.stylix = {
+    enableTerminal = mkOption {
+      default = false;
+      type = with types; bool;
+      description = "enable stylix for terminal";
+    };
     enable = mkOption {
       default = false;
       type = with types; bool;
-      description = "enable stylix";
+      description = "enable stylix for all";
     };
   };
 
-  config = mkIf cfg.enable {
-    fonts.fontconfig.enable = true;
-    environment.systemPackages = with pkgs; [
-      nerd-fonts.symbols-only
-      open-sans
-    ];
-
+  config = mkIf cfg.enableTerminal {
     stylix = {
       enable = true;
       autoEnable = true;
@@ -51,7 +50,7 @@ with lib;
         base0E = "#af8787";
         base0F = "#87afaf";
       };
-
+    } ++ attrsets.optionalAttrs cfg.enable {
       image = config.lib.stylix.pixel "base00";
       cursor = {
         name = "Quintom_Ink";
@@ -87,5 +86,7 @@ with lib;
         };
       };
     };
+  } ++ attrsets.optionalAttrs cfg.enable {
+    fonts.fontconfig.enable = true;
   };
 }

@@ -25,7 +25,6 @@ with lib;
     };
   };
 
-  # system.fonts.creeper.enable = mkDefault true;
   system.xdg.enable = mkDefault true;
 
   imports = [
