@@ -7,7 +7,8 @@
 with lib;
 let
   cfg = config.system.impermanence;
-in {
+in
+{
 
   imports = with inputs; [
     impermanence.nixosModules.impermanence
@@ -39,12 +40,12 @@ in {
     # Taken from https://github.com/NotAShelf/nyx/blob/2a8273ed3f11a4b4ca027a68405d9eb35eba567b/modules/core/common/system/impermanence/default.nix
     boot.initrd.systemd.services.rollback = {
       description = "Rollback BTRFS root subvolume to a pristine state";
-      wantedBy = ["initrd.target"];
+      wantedBy = [ "initrd.target" ];
       # make sure it's done after encryption
       # i.e. LUKS/TPM process
-      after = ["systemd-cryptsetup@cryptroot.service"];
+      after = [ "systemd-cryptsetup@cryptroot.service" ];
       # mount the root fs before clearing
-      before = ["sysroot.mount"];
+      before = [ "sysroot.mount" ];
       unitConfig.DefaultDependencies = "no";
       serviceConfig.Type = "oneshot";
       script = ''
@@ -62,7 +63,8 @@ in {
           done &&
         echo "deleting /root subvolume..." &&
         btrfs subvolume delete /mnt/root
-    '';
+      '';
+    };
 
     environment.persistence."/persist" = {
       hideMounts = true;
