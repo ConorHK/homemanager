@@ -37,13 +37,13 @@ in
     # inside your configuration.nix - you can generate this password with
     # mkpasswd -m sha-512 > /persist/passwords/notashelf after you confirm /persist/passwords exists
     users.mutableUsers = false;
-    users.users.root.hashedPasswordFile = "/persist/passwords/root";
+    users.users.root.hashedPassword ="*";  # lock root account
     users.users.${cfg.name} = {
       isNormalUser = true;
       inherit (cfg) name initialPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      hashedPasswordFile = "/persist/passwords/${cfg.name}";
+      # hashedPasswordFile = "/persist/passwords/${cfg.name}";
 
       shell = pkgs.zsh;
       extraGroups = [
