@@ -36,7 +36,7 @@ in
           "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
         ];
         favourite-apps = [
-          "schizofox.desktop"
+          "firefox.desktop"
           "alacritty.desktop"
         ];
       };

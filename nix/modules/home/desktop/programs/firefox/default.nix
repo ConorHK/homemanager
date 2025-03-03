@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 let
@@ -9,10 +8,6 @@ let
 in
 with lib;
 {
-  imports = [
-    inputs.schizofox.homeManagerModules.default
-  ];
-
   options.desktop.programs.firefox = {
     enable = mkOption {
       default = false;
@@ -23,14 +18,8 @@ with lib;
 
   config = mkIf cfg.enable {
     programs = {
-      schizofox = {
+      firefox = {
         enable = true;
-
-        # theme = {
-        #   colors = {
-        #     background-darker = config.styli
-        #   };
-        # };
       };
     };
   };
