@@ -31,10 +31,17 @@ in
     targets.genericLinux.enable = true;
     dconf.settings = {
       "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = [
+          "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+        ];
         favourite-apps = [
           "firefox.desktop"
           "alacritty.desktop"
         ];
+      };
+      "org/gnome/desktop/interface" = {
+        enable-hot-corners= false;
       };
     };
   };
