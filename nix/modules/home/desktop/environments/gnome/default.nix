@@ -43,6 +43,17 @@ in
       "org/gnome/desktop/interface" = {
         enable-hot-corners= false;
       };
+      "org/gnome/desktop/wm/keybindings" = {
+        close = ["<Shift><Super>q"];
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>Return";
+        command = "alacritty";
+        name = "Open terminal";
+      };
+      "org/gnome/mutter" = {
+        edge-tiling = true;
+      };
     };
   };
 }
