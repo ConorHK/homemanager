@@ -1,4 +1,5 @@
 {
+  inputs,
   flake,
   ...
 }:
@@ -8,6 +9,7 @@
     flake.nixosModules.styles
     flake.nixosModules.system
     flake.nixosModules.user
+    inputs.nur.modules.nixos.default
   ];
 
   system = {

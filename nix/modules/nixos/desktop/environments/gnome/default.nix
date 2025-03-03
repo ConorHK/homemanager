@@ -31,8 +31,8 @@ in
       };
       udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
-    environment.gnome.excludePackages =
-      (with pkgs; [
+    environment.gnome.excludePackages = with pkgs;
+      [
         gnome-photos
         gnome-tour
         cheese
@@ -48,7 +48,7 @@ in
         yelp # Help view
         gnome-contacts
         gnome-initial-setup
-      ]);
+      ];
 
     programs.dconf.enable = true;
   };

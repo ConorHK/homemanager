@@ -1,4 +1,5 @@
 {
+  inputs,
   flake,
   ...
 }:
@@ -25,17 +26,17 @@
   };
 
   xdg = {
-    mimeApps =  {
+    mimeApps = {
       enable = true;
       associations.added = {
-        "video/mp4" = ["org.gnome.Totem.desktop"];
-        "video/quicktime" = ["org.gnome.Totem.desktop"];
-        "video/webm" = ["org.gnome.Totem.desktop"];
-        "video/x-matroska" = ["org.gnome.Totem.desktop"];
-        "image/gif" = ["org.gnome.Loupe.desktop"];
-        "image/png" = ["org.gnome.Loupe.desktop"];
-        "image/jpg" = ["org.gnome.Loupe.desktop"];
-        "image/jpeg" = ["org.gnome.Loupe.desktop"];
+        "video/mp4" = [ "org.gnome.Totem.desktop" ];
+        "video/quicktime" = [ "org.gnome.Totem.desktop" ];
+        "video/webm" = [ "org.gnome.Totem.desktop" ];
+        "video/x-matroska" = [ "org.gnome.Totem.desktop" ];
+        "image/gif" = [ "org.gnome.Loupe.desktop" ];
+        "image/png" = [ "org.gnome.Loupe.desktop" ];
+        "image/jpg" = [ "org.gnome.Loupe.desktop" ];
+        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
       };
       defaultApplications = {
         "application/x-extension-htm" = "firefox";
@@ -46,24 +47,24 @@
         "application/xhtml+xml" = "firefox";
         "text/html" = "firefox";
         "x-scheme-handler/about" = "firefox";
-        "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
+        "x-scheme-handler/chrome" = [ "chromium-browser.desktop" ];
         "x-scheme-handler/ftp" = "firefox";
         "x-scheme-handler/http" = "firefox";
         "x-scheme-handler/https" = "firefox";
         "x-scheme-handler/unknown" = "firefox";
 
-        "audio/*" = ["mpv.desktop"];
-        "video/*" = ["org.gnome.Totem.desktop"];
-        "video/mp4" = ["org.gnome.Totem.desktop"];
-        "video/x-matroska" = ["org.gnome.Totem.desktop"];
-        "image/*" = ["org.gnome.loupe.desktop"];
-        "image/png" = ["org.gnome.loupe.desktop"];
-        "image/jpg" = ["org.gnome.loupe.desktop"];
-        "application/json" = ["gnome-text-editor.desktop"];
+        "audio/*" = [ "mpv.desktop" ];
+        "video/*" = [ "org.gnome.Totem.desktop" ];
+        "video/mp4" = [ "org.gnome.Totem.desktop" ];
+        "video/x-matroska" = [ "org.gnome.Totem.desktop" ];
+        "image/*" = [ "org.gnome.loupe.desktop" ];
+        "image/png" = [ "org.gnome.loupe.desktop" ];
+        "image/jpg" = [ "org.gnome.loupe.desktop" ];
+        "application/json" = [ "gnome-text-editor.desktop" ];
         "application/pdf" = "firefox";
-        "application/x-gnome-saved-search" = ["org.gnome.Nautilus.desktop"];
-        "x-scheme-handler/discord" = ["discord.desktop"];
-        "x-scheme-handler/spotify" = ["spotify.desktop"];
+        "application/x-gnome-saved-search" = [ "org.gnome.Nautilus.desktop" ];
+        "x-scheme-handler/discord" = [ "discord.desktop" ];
+        "x-scheme-handler/spotify" = [ "spotify.desktop" ];
         "application/toml" = "org.gnome.TextEditor.desktop";
         "text/plain" = "org.gnome.TextEditor.desktop";
       };
@@ -72,5 +73,6 @@
 
   imports = [
     flake.homeModules.desktop
+    inputs.nur.modules.homeManager.default
   ];
 }

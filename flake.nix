@@ -16,7 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     comma.url = "github:nix-community/comma";
     blueprint.url = "github:numtide/blueprint";
 

@@ -6,7 +6,8 @@
 with lib;
 let
   cfg = config.system.xdg;
-in {
+in
+{
   options.system.xdg = with types; {
     enable = mkOption {
       default = false;
