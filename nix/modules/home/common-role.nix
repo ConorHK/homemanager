@@ -24,7 +24,10 @@ with lib;
       zoxide.enable = true;
     };
   };
+
   # system.fonts.creeper.enable = mkDefault true;
+  system.xdg.enable = mkDefault true;
+
   imports = [
     flake.homeModules.cli
     flake.homeModules.system
