@@ -8,9 +8,10 @@
           type = "gpt";
           partitions = {
             ESP = {
+              priority = 1;
               label = "boot";
               name = "ESP";
-              size = "512M";
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -27,8 +28,10 @@
               content = {
                 type = "luks";
                 name = "cryptroot";
+                settings = {
+                  allowDiscards = true;
+                };
                 extraOpenArgs = [
-                  "--allow-discards"
                   "--perf-no_read_workqueue"
                   "--perf-no_write_workqueue"
                 ];
@@ -58,14 +61,6 @@
                         "noatime"
                       ];
                     };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = [
-                        "subvol=nix"
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
                     "/persist" = {
                       mountpoint = "/persist";
                       mountOptions = [
@@ -82,11 +77,25 @@
                         "noatime"
                       ];
                     };
+                    "/nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [
+                        "subvol=nix"
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
                     "/swap" = {
-                      mountpoint = "/swap";
-                      swap.swapfile.size = "64G";
+                      mountpoint = "/.swapvol";
+                      swap.swapfile.size = "8G";
                     };
                   };
+                  postCreateHook = ''
+                    MNTPOINT=$(mktemp -d)
+                    mount "/dev/mapper/cryptroot" "$MNTPOINT" -o subvolid=5
+                    trap 'umount $MNTPOINT && rm -rf $MNTPOINT' EXIT
+                    btrfs subvolume snapshot -r $MNTPOINT/root $MNTPOINT/root-blank
+                  '';
                 };
               };
             };
@@ -97,5 +106,5 @@
   };
 
   fileSystems."/persist".neededForBoot = true;
-  fileSystems."/var/log".neededForBoot = true;
+  fileSystems."/home".neededForBoot = true;
 }
