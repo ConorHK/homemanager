@@ -19,18 +19,6 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      gnome-tweaks
-      gnomeExtensions.user-themes
-      gnomeExtensions.space-bar
-      gnomeExtensions.hibernate-status-button
-      gnomeExtensions.forge
-      gnomeExtensions.appindicator
-      gnomeExtensions.just-perfection
-      gnomeExtensions.pano
-      gnomeExtensions.search-light
-      gnomeExtensions.gsconnect
-      gnomeExtensions.caffeine
-      gnomeExtensions.launch-new-instance
     ];
 
     xdg = {
@@ -41,5 +29,13 @@ in
       ];
     };
     targets.genericLinux.enable = true;
+    dconf.settings = {
+      "org/gnome/shell" = {
+        favourite-apps = [
+          "firefox.desktop"
+          "alacritty.desktop"
+        ];
+      };
+    };
   };
 }
