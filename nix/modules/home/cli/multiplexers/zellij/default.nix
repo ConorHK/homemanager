@@ -120,14 +120,14 @@ in
           bind "Esc" { SwitchToMode "Normal"; }
           bind "Enter" { SwitchToMode "Normal"; }
 
-          bind "Ctrl Left" { MoveFocus "Left"; }
-          bind "Ctrl Right" { MoveFocus "Right"; }
-          bind "Ctrl Up" { MoveFocus "Up"; }
-          bind "Ctrl Down" { MoveFocus "Down"; }
+          bind "Ctrl Left" "Ctrl h" { MoveFocus "Left"; }
+          bind "Ctrl Right" "Ctrl l" { MoveFocus "Right"; }
+          bind "Ctrl Up" "Ctrl k" { MoveFocus "Up"; }
+          bind "Ctrl Down" "Ctrl j" { MoveFocus "Down"; }
 
-          bind "v" { NewPane "Right"; }
-          bind "h" { NewPane "Down"; }
-          bind "z" { ToggleFocusFullscreen; }
+          bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
+          bind "h" { NewPane "Down"; SwitchToMode "Normal"; }
+          bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
           bind "x" { CloseFocus; SwitchToMode "Normal"; }
         }
         tab {
