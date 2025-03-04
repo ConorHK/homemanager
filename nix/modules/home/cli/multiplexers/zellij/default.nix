@@ -64,7 +64,7 @@ in {
       pane_viewport_serialization true
       scrollback_lines_to_serialize 5000
 
-      settings {
+      ui {
         pane_frames {
           rounded_corners true;
         }
@@ -76,6 +76,9 @@ in {
           watch_triggers "fzf|zoxide|atuin"
           watch_interval "1.0"
         }
+      }
+      load_plugins {
+        autolock
       }
 
       keybinds clear-defaults=true {
