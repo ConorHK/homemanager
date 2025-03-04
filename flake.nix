@@ -48,7 +48,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     impermanence.url = "github:nix-community/impermanence";
 
-    schizofox.url = "github:schizofox/schizofox";
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =

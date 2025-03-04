@@ -4,6 +4,7 @@
     flake.homeModules.common-role
     flake.homeModules.development-role
     flake.homeModules.desktop-role
+    flake.homeModules.gaming-role
   ];
 
   config = {
