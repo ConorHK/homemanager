@@ -21,10 +21,12 @@ in
     hardware = {
       bluetooth = {
         enable = true;
-        powerOnBoot = false;
+        powerOnBoot = mkDefault false;
         settings = {
           General = {
             Experimental = true;
+            AutoEnable = true;
+            ControllerMode = "bredr";
           };
         };
       };

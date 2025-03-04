@@ -1,10 +1,10 @@
 {
-  flake,
   pkgs,
   ...
 }:
 {
   hardware = {
+    uinput.enable = true;
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
@@ -21,8 +21,8 @@
     steam = {
       enable = true;
       package = pkgs.steam.override {
-        extraPkgs = p:
-          with p; [
+        extraPkgs =
+          p: with p; [
             mangohud
             gamemode
           ];
@@ -40,5 +40,9 @@
     winetricks
     wineWowPackages.waylandFull
     adwsteamgtk
+  ];
+
+  services.udev.packages = with pkgs; [ 
+    game-devices-udev-rules
   ];
 }

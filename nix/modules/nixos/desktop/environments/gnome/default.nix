@@ -31,24 +31,23 @@ in
       };
       udev.packages = with pkgs; [ gnome-settings-daemon ];
     };
-    environment.gnome.excludePackages = with pkgs;
-      [
-        gnome-photos
-        gnome-tour
-        cheese
-        gnome-music
-        gedit # text editor
-        epiphany # web browser
-        geary # email reader
-        gnome-characters
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
-        yelp # Help view
-        gnome-contacts
-        gnome-initial-setup
-      ];
+    environment.gnome.excludePackages = with pkgs; [
+      gnome-photos
+      gnome-tour
+      cheese
+      gnome-music
+      gedit # text editor
+      epiphany # web browser
+      geary # email reader
+      gnome-characters
+      tali # poker game
+      iagno # go game
+      hitori # sudoku game
+      atomix # puzzle game
+      yelp # Help view
+      gnome-contacts
+      gnome-initial-setup
+    ];
 
     programs.dconf.enable = true;
   };

@@ -2,13 +2,13 @@
   inputs,
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib;
 let
   cfg = config.desktop.programs.discord;
-in {
+in
+{
   imports = [
     inputs.nixcord.homeManagerModules.nixcord
   ];

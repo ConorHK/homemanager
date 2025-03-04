@@ -40,36 +40,33 @@ with lib;
 
           Homepage.StartPage = "previous-session";
 
-          UserMessaging =
-          {
+          UserMessaging = {
             UrlbarInterventions = false;
             SkipOnboarding = true;
           };
 
-          FirefoxSuggest =
-          {
+          FirefoxSuggest = {
             WebSuggestions = false;
             SponsoredSuggestions = false;
             ImproveSuggest = false;
           };
 
-          EnableTrackingProtection =
-          {
+          EnableTrackingProtection = {
             Value = true;
             Cryptomining = true;
             Fingerprinting = true;
           };
 
           FirefoxHome = # Make new tab only show search
-          {
-            Search = true;
-            TopSites = false;
-            SponsoredTopSites = false;
-            Highlights = false;
-            Pocket = false;
-            SponsoredPocket = false;
-            Snippets = false;
-          };
+            {
+              Search = true;
+              TopSites = false;
+              SponsoredTopSites = false;
+              Highlights = false;
+              Pocket = false;
+              SponsoredPocket = false;
+              Snippets = false;
+            };
         };
         profiles = {
           default = {
