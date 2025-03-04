@@ -19,4 +19,9 @@
       port = 22;
     };
   };
+  config.cli.programs.git = {
+    defaultBranch = "main";
+    email = "dev@conorknowles.com";
+  };
+
 }
