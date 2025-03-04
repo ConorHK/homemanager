@@ -1,7 +1,7 @@
 _: {
   cli = {
     editors.cnvim.enable = true;
-    multiplexers.tmux.enable = true;
+    multiplexers.zellij.enable = true;
 
     programs = {
       atuin.enable = true;
