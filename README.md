@@ -1,5 +1,5 @@
-# homemanager
-nix homemanager setup
+# tundra
+nixos/home-manager/nix-darwin setup
 
 ## Bootstrap instructions
 ### Prerequisites
@@ -13,5 +13,5 @@ nix homemanager setup
 
 2. Activate the config
 ```
-nh home switch .
+nh {os, home} switch .
 ```
