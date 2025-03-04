@@ -20,6 +20,8 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  security.sudo.wheelNeedsPassword = false;
+
   system = {
     nix.enable = true;
     boot.enable = true;

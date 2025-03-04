@@ -71,6 +71,7 @@ in
       directories = [
         "/etc/NetworkManager/system-connections"
         "/etc/secureboot"
+        "/etc/passwords"
         "/var/lib/flatpak"
         "/var/lib/libvirt"
         "/var/lib/bluetooth"

@@ -43,7 +43,7 @@ in
       inherit (cfg) name initialPassword;
       home = "/home/${cfg.name}";
       group = "users";
-      # hashedPasswordFile = "/persist/passwords/${cfg.name}";
+      hashedPasswordFile = "/persist/passwords/${cfg.name}";
 
       shell = pkgs.zsh;
       extraGroups = [
