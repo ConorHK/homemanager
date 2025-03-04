@@ -23,6 +23,7 @@ with lib;
 
     flake.nixosModules.common-role
     flake.nixosModules.desktop-role
+    flake.nixosModules.gaming-role
   ];
 
   hardware = {
