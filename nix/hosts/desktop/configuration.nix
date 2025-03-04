@@ -43,13 +43,6 @@ with lib;
     };
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = mkDefault true;
-      allowUnfreePredicate = _: true;
-    };
-  };
-
   networking.hostName = "desktop";
 
   boot = {

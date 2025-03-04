@@ -8,6 +8,7 @@
   ];
 
   config = {
+    # styles.stylix.enableHome = lib.mkForce false;
     home = {
       sessionVariables = {
         BROWSER = "firefox";

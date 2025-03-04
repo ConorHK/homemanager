@@ -15,4 +15,11 @@ with lib;
     stateVersion = "25.05";
   };
   system.xdg.enable = true;
+
+  # nixpkgs = {
+  #   config = {
+  #     allowUnfree = mkDefault true;
+  #     allowUnfreePredicate = _: true;
+  #   };
+  # };
 }

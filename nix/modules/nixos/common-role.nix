@@ -10,7 +10,15 @@
     flake.nixosModules.system
     flake.nixosModules.user
     inputs.nur.modules.nixos.default
+    inputs.home-manager.nixosModules.default
   ];
+
+  home-manager = {
+    extraSpecialArgs.inputs = inputs;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+  nixpkgs.config.allowUnfree = true;
 
   system = {
     nix.enable = true;
@@ -19,5 +27,5 @@
   };
 
   hardware.networking.enable = true;
-  styles.stylix.enable = true;
+  styles.stylix.enableNixOs = true;
 }

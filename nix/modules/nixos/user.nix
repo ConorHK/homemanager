@@ -60,10 +60,6 @@ in
       ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
 
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-    };
     programs.zsh.enable = true;
   };
 }

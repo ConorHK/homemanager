@@ -8,7 +8,6 @@
 with lib;
 let
   cfg = config.cli.multiplexers.zellij;
-  inherit (config.lib.stylix) colors;
 
   sesh = pkgs.writeScriptBin "sesh" ''
     #! /usr/bin/env sh
@@ -38,7 +37,8 @@ let
     	zellij attach -c "$SESSION_TITLE"
     fi
   '';
-in {
+in
+{
   options.cli.multiplexers.zellij = with types; {
     enable = mkOption {
       default = false;
@@ -189,5 +189,5 @@ in {
         }
       }
     '';
-    };
+  };
 }

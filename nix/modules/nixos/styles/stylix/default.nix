@@ -16,14 +16,14 @@ with lib;
   ];
 
   options.styles.stylix = {
-    enable = mkOption {
+    enableNixOs = mkOption {
       default = false;
       type = with types; bool;
       description = "enable stylix";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enableNixOs {
     fonts.fontconfig.enable = true;
     environment.systemPackages = with pkgs; [
       nerd-fonts.symbols-only

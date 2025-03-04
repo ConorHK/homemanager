@@ -21,16 +21,16 @@ with lib;
       trusted-users = [ config.home.username ];
     };
 
-    package = pkgs.nixVersions.stable;
+    package = mkForce pkgs.nixVersions.stable;
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = mkDefault true;
-      allowUnfreePredicate = _: true;
-    };
-  };
+  # nixpkgs = {
+  #   config = {
+  #     allowUnfree = true;
+  #     allowUnfreePredicate = (_: true);
+  #   };
+  # };
 
   cli = {
     shells.zsh.enable = true;
@@ -50,11 +50,11 @@ with lib;
   };
 
   system.xdg.enable = mkDefault true;
-  styles.stylix.enable = true;
+  # styles.stylix.enableHome = mkDefault true;
 
   imports = [
     flake.homeModules.cli
     flake.homeModules.system
-    flake.homeModules.styles
+    # flake.homeModules.styles
   ];
 }
