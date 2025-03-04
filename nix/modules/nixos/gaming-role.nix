@@ -5,6 +5,7 @@
 {
   hardware = {
     uinput.enable = true;
+    steam-hardware.enable = true;
     graphics = {
       enable = true;
       extraPackages = with pkgs; [

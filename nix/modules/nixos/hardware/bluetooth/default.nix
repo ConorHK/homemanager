@@ -25,11 +25,18 @@ in
         settings = {
           General = {
             Experimental = true;
-            AutoEnable = true;
-            ControllerMode = "bredr";
+            Privacy = "device";
+            JustWorksRepairing = "always";
+            Class = "0x000100";
+            FastConnectable = true;
           };
         };
       };
+    };
+    boot = {
+      extraModprobeConfig = ''
+        options bluetooth disable_ertm=Y
+      '';
     };
   };
 }
