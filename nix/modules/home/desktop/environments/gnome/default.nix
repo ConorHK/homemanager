@@ -38,7 +38,7 @@ in
         favourite-apps = [
           "firefox.desktop"
           "alacritty.desktop"
-        ];
+        ] ++ optional config.desktop.programs.discord.enable "discord.desktop";
       };
       "org/gnome/desktop/interface" = {
         enable-hot-corners = false;
