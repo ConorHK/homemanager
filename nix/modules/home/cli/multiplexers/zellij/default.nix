@@ -78,7 +78,7 @@ in {
       keybinds clear-defaults=true {
         locked {
           bind "Ctrl t" { SwitchToMode "Tmux"; }
-          bind "Esc" { SwitchToMode "Locked"; }
+          bind "Ctrl q" { SwitchToMode "Locked"; }
         }
 
         normal {
@@ -106,6 +106,7 @@ in {
           bind "h" { SwitchToMode "Move"; }
           bind "s" { SwitchToMode "Scroll"; }
           bind "o" { SwitchToMode "Session"; }
+          bind "?" { SwitchToMode "EnterSearch"; SearchInput 0; }
 
           bind "q" { Quit; }
         }
@@ -120,7 +121,49 @@ in {
 
           bind "v" { NewPane "Right"; }
           bind "h" { NewPane "Down"; }
+          bind "z" { ToggleFocusFullscreen; }
           bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        }
+        tab {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+
+          bind "c" { NewTab; SwitchToMode "Normal"; }
+          bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+          bind "n" { GoToNextTab; }
+          bind "p" { GoToPreviousTab; }
+
+        }
+        resize {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+        }
+        move {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+        }
+        scroll {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+        }
+        session {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+        }
+        entersearch {
+          bind "Ctrl c" "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Search"; }
+        }
+        search {
+          bind "Esc" { SwitchToMode "Normal"; }
+          bind "Enter" { SwitchToMode "Normal"; }
+
+          bind "j" "Down" { ScrollDown; }
+          bind "k" "Up" { ScrollUp; }
+          bind "Ctrl d" { PageScrollDown; }
+          bind "Ctrl u" { PageScrollUp; }
+          bind "n" { Search "down"; }
+          bind "b" { Search "up"; }
         }
       }
     '';
