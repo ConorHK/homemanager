@@ -61,6 +61,9 @@ in {
       default_shell "zsh"
       default_layout "compact"
 
+      pane_viewport_serialization true
+      scrollback_lines_to_serialize 5000
+
       settings {
         pane_frames {
           rounded_corners true;
@@ -104,8 +107,8 @@ in {
           bind "t" { SwitchToMode "Tab"; }
           bind "n" { SwitchToMode "Resize"; }
           bind "h" { SwitchToMode "Move"; }
-          bind "s" { SwitchToMode "Scroll"; }
-          bind "o" { SwitchToMode "Session"; }
+          bind "s" { SwitchToMode "Session"; }
+          bind "o" { SwitchToMode "Scroll"; }
           bind "?" { SwitchToMode "EnterSearch"; SearchInput 0; }
 
           bind "q" { Quit; }
@@ -132,7 +135,14 @@ in {
           bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
           bind "n" { GoToNextTab; }
           bind "p" { GoToPreviousTab; }
-
+        }
+        renametab {
+          bind "Ctrl c" "Enter" { SwitchToMode "Normal"; }
+          bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+        }
+        renamepane {
+          bind "Ctrl c" "Enter" { SwitchToMode "Normal"; }
+          bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
         }
         resize {
           bind "Esc" { SwitchToMode "Normal"; }
@@ -149,6 +159,15 @@ in {
         session {
           bind "Esc" { SwitchToMode "Normal"; }
           bind "Enter" { SwitchToMode "Normal"; }
+
+          bind "d" { Detach; }
+          bind "s" {
+              LaunchOrFocusPlugin "session-manager" {
+                  floating true
+                  move_to_focused_tab true
+              };
+              SwitchToMode "Normal"
+          }
         }
         entersearch {
           bind "Ctrl c" "Esc" { SwitchToMode "Normal"; }
