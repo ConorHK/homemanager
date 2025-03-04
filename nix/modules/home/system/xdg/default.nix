@@ -28,17 +28,17 @@ in
         enable = true;
         createDirectories = true;
 
-        desktop = "${config.home.homeDirectory}/desktop";
-        documents = "${config.home.homeDirectory}/docs";
-        download = "${config.home.homeDirectory}/dl";
-        music = "${config.home.homeDirectory}/media/music";
-        pictures = "${config.home.homeDirectory}/media/pictures";
+        desktop = mkDefault "${config.home.homeDirectory}/desktop";
+        documents = mkDefault "${config.home.homeDirectory}/docs";
+        download = mkDefault "${config.home.homeDirectory}/dl";
+        music = mkDefault "${config.home.homeDirectory}/media/music";
+        pictures = mkDefault "${config.home.homeDirectory}/media/pictures";
         publicShare = null;
         templates = null;
-        videos = "${config.home.homeDirectory}/media/vidoes";
+        videos = mkDefault "${config.home.homeDirectory}/media/videos";
 
         extraConfig = {
-          XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/screenshots";
+          XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/media/picturesscreenshots";
           XDG_REPOSITORIES_DIR = "${config.home.homeDirectory}/repositories";
         };
       };

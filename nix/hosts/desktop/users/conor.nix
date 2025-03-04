@@ -12,7 +12,7 @@
       sessionVariables = {
         BROWSER = "firefox";
       };
-      stateVersion = "24.11";
+      stateVersion = "25.05";
     };
     cli.programs.ssh.extraHosts.server = {
       hostname = "goosebox.org";

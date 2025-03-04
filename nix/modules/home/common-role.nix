@@ -50,9 +50,11 @@ with lib;
   };
 
   system.xdg.enable = mkDefault true;
+  styles.stylix.enable = true;
 
   imports = [
     flake.homeModules.cli
     flake.homeModules.system
+    flake.homeModules.styles
   ];
 }
