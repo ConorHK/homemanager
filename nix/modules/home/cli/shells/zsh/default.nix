@@ -23,6 +23,7 @@ in
 
     programs.zsh = {
       sessionVariables.__HM_SESS_VARS_SOURCED = "";
+      sessionVariables.LS_COLORS = "";
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = false;
