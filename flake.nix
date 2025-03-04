@@ -49,6 +49,8 @@
     impermanence.url = "github:nix-community/impermanence";
 
     nixcord.url = "github:kaylorben/nixcord";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
