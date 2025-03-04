@@ -18,9 +18,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      nix-index
-      comma
-    ];
+    programs.nix-index-database.comma.enable = true;
   };
 }
