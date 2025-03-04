@@ -49,14 +49,16 @@ in
           set -g status-interval 5
           set -g status-position top
           setw -g window-status-separator " "
-          setw -g window-status-format "#I #W ▓░"
-          setw -g window-status-current-format " #I #W ▓░"
-          set-option -g status-right "░▓ %Y/%m/%d-%u %H%M ▓"
-          set-option -g status-left " #S "
+          setw -g window-status-format "#[bg=colour241,fg=colour0] #I #[bg=colour241,fg=colour0]#W #[bg=default,fg=colour241]▓░"
+          setw -g window-status-current-format "#[bg=colour10,fg=colour0] #I #[bg=colour10,fg=colour0]#W #[bg=default,fg=colour10]▓░"
+          set-option -g status-right "#[bg=default,fg=colour237]░▓#[bg=colour237,fg=colour15]#[bg=colour237,fg=colour243] %Y/%m/%d-%u #[fg=colour7]%H%M #[bg=colour243,fg=colour237]▓#[default]"
+          set-option -g status-left "#[bg=colour235,fg=colour7] #S "
 
           set -g set-clipboard on
-          set -g @extrakto_clip_tool_run "tmux_osc52"
           set -ag terminal-overrides ",tmux-256color:Ms=\\E]52;c;%p2%s\\7,xterm*:XT:Ms=\\E]52;c;%p2%s\\7"
+
+          set -g @extrakto_clip_tool "osc copy"
+          set -g @extrakto_clip_tool_run "tmux_osc52"
 
           is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
           bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
