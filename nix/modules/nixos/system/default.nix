@@ -5,5 +5,6 @@
     ./impermanence
     ./locale
     ./nix
+    ./tailscale
   ];
 }

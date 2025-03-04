@@ -26,6 +26,7 @@
     nix.enable = true;
     boot.enable = true;
     locale.enable = true;
+    tailscale.enable = true;
   };
 
   hardware.networking.enable = true;
