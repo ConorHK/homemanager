@@ -21,7 +21,13 @@ in
     services = {
       xserver = {
         enable = true;
-        displayManager.gdm.enable = true;
+        displayManager = {
+          gdm.enable = true;
+          autoLogin = {
+            enable = true;
+            user = config.user.name;
+          };
+        };
         desktopManager.gnome = {
           enable = true;
           extraGSettingsOverridePackages = [
