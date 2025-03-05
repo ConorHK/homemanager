@@ -94,10 +94,10 @@ in
           }
 
           bind "Ctrl t" { SwitchToMode "Tmux"; }
-          bind "Ctrl Left" { MoveFocus "Left"; }
-          bind "Ctrl Right" { MoveFocus "Right"; }
-          bind "Ctrl Up" { MoveFocus "Up"; }
-          bind "Ctrl Down" { MoveFocus "Down"; }
+          bind "Ctrl Left" "Ctrl h" { MoveFocus "Left"; }
+          bind "Ctrl Right" "Ctrl l" { MoveFocus "Right"; }
+          bind "Ctrl Up" "Ctrl k" { MoveFocus "Up"; }
+          bind "Ctrl Down" "Ctrl j" { MoveFocus "Down"; }
 
           unbind "Ctrl b"
         }
