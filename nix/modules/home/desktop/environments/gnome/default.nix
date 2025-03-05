@@ -19,6 +19,8 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      gnome-tweaks
+      gnomeExtensions.search-light
     ];
 
     xdg = {
@@ -34,6 +36,7 @@ in
         disable-user-extensions = false;
         enabled-extensions = [
           "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+          "search-light@icedman.github.com"
         ];
         favourite-apps = [
           "firefox.desktop"
@@ -54,6 +57,13 @@ in
       "org/gnome/mutter" = {
         edge-tiling = true;
         dynamic-workspaces = true;
+      };
+      "org/gnome/shell/extensions/search-light" = {
+        shortcut-search = ["<Super>Space"];
+      };
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-input-source = [];
+        switch-input-source-backward = [];
       };
     };
   };
