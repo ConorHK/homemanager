@@ -52,6 +52,8 @@ with lib;
         base0F = "#87afaf";
       };
 
+      targets.plymouth.enable = false;
+
       image = config.lib.stylix.pixel "base00";
       cursor = {
         name = "Quintom_Ink";

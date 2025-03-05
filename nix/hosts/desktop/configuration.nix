@@ -34,11 +34,12 @@ with lib;
   };
 
   system.impermanence.enable = false;
+  system.boot.plymouth = true;
 
   user = {
     name = "conor";
     extraOptions = {
-      description = "Conor";
+      description = "admin";
       uid = 1000;
     };
   };

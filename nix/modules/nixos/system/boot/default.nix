@@ -45,14 +45,28 @@ with lib;
 
     boot = {
       kernelParams = lib.optionals cfg.plymouth [
+        "boot.shell_on_fail"
         "quiet"
         "splash"
         "loglevel=3"
         "udev.log_level=0"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
       ];
-      # initrd.verbose = lib.optionals cfg.plymouth false;
-      # consoleLogLevel = lib.optionals cfg.plymouth 0;
+      initrd.verbose = lib.optionals cfg.plymouth false;
+      consoleLogLevel = lib.optionals cfg.plymouth 0;
+      loader.timeout = lib.optionals cfg.plymouth 0;
       initrd.systemd.enable = true;
+      plymouth = {
+        enable = cfg.plymouth;
+        theme = "splash";
+        themePackages = with pkgs; [
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "splash" ];
+          })
+        ];
+      };
 
       lanzaboote = mkIf cfg.secureBoot {
         enable = true;
@@ -71,9 +85,6 @@ with lib;
         };
       };
 
-      plymouth = {
-        enable = cfg.plymouth;
-      };
     };
   };
 }
