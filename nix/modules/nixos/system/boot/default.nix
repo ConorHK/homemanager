@@ -37,7 +37,7 @@ with lib;
       with pkgs;
       [
         efibootmgr
-        efitools
+      efitools
         efivar
         fwupd
       ]
