@@ -40,7 +40,7 @@ in
         ];
         favourite-apps = [
           "firefox.desktop"
-          "alacritty.desktop"
+          "Alacritty.desktop"
         ] ++ optional config.desktop.programs.discord.enable "discord.desktop";
       };
       "org/gnome/desktop/interface" = {
@@ -65,6 +65,7 @@ in
         switch-input-source = [];
         switch-input-source-backward = [];
       };
+      "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     };
   };
 }
