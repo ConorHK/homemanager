@@ -70,7 +70,7 @@ with lib;
 
       lanzaboote = mkIf cfg.secureBoot {
         enable = true;
-        pkiBundle = "/etc/secureboot";
+        pkiBundle = "/var/lib/sbctl";
       };
 
       loader = {

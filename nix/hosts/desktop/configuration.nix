@@ -34,7 +34,10 @@ with lib;
   };
 
   system.impermanence.enable = false;
-  system.boot.plymouth = true;
+  system.boot = {
+    plymouth = true;
+    secureBoot = true;
+  };
 
   user = {
     name = "conor";

@@ -70,7 +70,6 @@ in
       hideMounts = true;
       directories = [
         "/etc/NetworkManager/system-connections"
-        "/etc/secureboot"
         "/etc/passwords"
         "/var/lib/flatpak"
         "/var/lib/libvirt"
@@ -80,6 +79,7 @@ in
         "/var/cache/tailscale"
         "/var/db/sudo/"
         "/var/lib/tailscale"
+        "/var/lib/sbctl"
       ];
       files = [
         "/etc/machine-id"
