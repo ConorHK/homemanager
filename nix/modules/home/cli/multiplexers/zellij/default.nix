@@ -13,17 +13,21 @@ let
   sesh = pkgs.writeScriptBin "sesh" ''
     #! /usr/bin/env sh
 
-    ZJ_SESSIONS=$(zellij list-sessions -s)
-    NO_SESSIONS=$(echo "$ZJ_SESSIONS" | wc -l)
+    select_session() {
+      ZJ_SESSIONS=$(zellij list-sessions -s)
+      NO_SESSIONS=$(echo "$ZJ_SESSIONS" | wc -l)
 
-    if [ -z "$ZELLIJ" ]; then
-      if [ "$NO_SESSIONS" -ge 2 ]; then
-        zellij attach \
-        "$(echo "$ZJ_SESSIONS" | ${pkgs.fzf}/bin/fzf)"
-      else
-         zellij attach -c
+      if [ -z "$ZELLIJ" ]; then
+        if [ "$NO_SESSIONS" -ge 2 ]; then
+          zellij attach \
+          "$(echo "$ZJ_SESSIONS" | ${pkgs.fzf}/bin/fzf)"
+        else
+           zellij attach -c
+        fi
       fi
-    fi
+    }
+    select_session
+    [ $? -ne 0 ] && zellij attach -c "default"
   '';
 in
 {
