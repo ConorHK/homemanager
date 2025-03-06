@@ -45,6 +45,11 @@ in
       type = with types; bool;
       description = "enable zellij multiplexer";
     };
+    enableAutoStart = mkOption {
+      default = true;
+      type = with types; bool;
+      description = "enable zellij to start in any ZSH shell";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -55,7 +60,7 @@ in
 
     programs.zellij = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = cfg.enableAutoStart;
     };
     xdg.configFile."zellij/config.kdl".text = ''
       default_shell "zsh"

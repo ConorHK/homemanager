@@ -14,6 +14,11 @@ in
       type = with types; bool;
       description = "enable xdg directories";
     };
+    enableUserDirectories = mkOption {
+      default = true;
+      type = with types; bool;
+      description = "enable xdg user directories";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -25,7 +30,7 @@ in
       enable = true;
       cacheHome = config.home.homeDirectory + "/.local/cache";
       userDirs = {
-        enable = true;
+        enable = cfg.enableUserDirectories;
         createDirectories = true;
 
         desktop = mkDefault "${config.home.homeDirectory}/desktop";

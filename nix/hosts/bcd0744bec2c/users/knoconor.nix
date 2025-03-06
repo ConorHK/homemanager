@@ -1,6 +1,5 @@
 {
   flake,
-  config,
   lib,
   ...
 }:
@@ -16,9 +15,12 @@ with lib;
       defaultBranch = "mainline";
       email = "knoconor@amazon.com";
     };
+    cli.multiplexers.zellij.enableAutoStart = false;
     home = {
       stateVersion = "25.05";
     };
     cli.programs.ssh.enable = mkForce false;
+    # nix.settings.use-xdg-base-directories = false;
+    system.xdg.enableUserDirectories = false;
   };
 }
