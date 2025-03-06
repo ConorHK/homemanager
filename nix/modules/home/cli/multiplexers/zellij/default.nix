@@ -9,32 +9,20 @@ with lib;
 let
   cfg = config.cli.multiplexers.zellij;
 
+  # depends on fzf
   sesh = pkgs.writeScriptBin "sesh" ''
     #! /usr/bin/env sh
 
-    # Taken from https://github.com/zellij-org/zellij/issues/884#issuecomment-1851136980
-    # select a directory using zoxide
-    ZOXIDE_RESULT=$(zoxide query --interactive)
-    # checks whether a directory has been selected
-    if [[ -z "$ZOXIDE_RESULT" ]]; then
-    	# if there was no directory, select returns without executing
-    	exit 0
-    fi
-    # extracts the directory name from the absolute path
-    SESSION_TITLE=$(echo "$ZOXIDE_RESULT" | sed 's#.*/##')
+    ZJ_SESSIONS=$(zellij list-sessions -s)
+    NO_SESSIONS=$(echo "$ZJ_SESSIONS" | wc -l)
 
-    # get the list of sessions
-    SESSION_LIST=$(zellij list-sessions -n | awk '{print $1}')
-
-    # checks if SESSION_TITLE is in the session list
-    if echo "$SESSION_LIST" | grep -q "^$SESSION_TITLE$"; then
-    	# if so, attach to existing session
-    	zellij attach "$SESSION_TITLE"
-    else
-    	# if not, create a new session
-    	echo "Creating new session $SESSION_TITLE and CD $ZOXIDE_RESULT"
-    	cd $ZOXIDE_RESULT
-    	zellij attach -c "$SESSION_TITLE"
+    if [ -z "$ZELLIJ" ]; then
+      if [ "$NO_SESSIONS" -ge 2 ]; then
+        zellij attach \
+        "$(echo "$ZJ_SESSIONS" | ${pkgs.fzf}/bin/fzf)"
+      else
+         zellij attach -c
+      fi
     fi
   '';
 in
@@ -54,13 +42,16 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.tmate
+      pkgs.fzf
       sesh
     ];
 
+    programs.zsh.initExtra = mkIf cfg.enableAutoStart (mkOrder 200 ''
+      ${sesh}/bin/sesh
+    '');
+
     programs.zellij = {
       enable = true;
-      enableZshIntegration = cfg.enableAutoStart;
     };
     xdg.configFile."zellij/config.kdl".text = ''
       default_shell "zsh"
