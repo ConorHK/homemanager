@@ -3,6 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
+  config,
   inputs,
   flake,
   lib,
@@ -37,6 +38,11 @@ with lib;
   system.boot = {
     plymouth = true;
     secureBoot = true;
+  };
+
+  sops.secrets."passwords/${config.networking.hostName}/${config.user.name}" = {
+    sopsFile = ../secrets.yaml;
+    neededForUsers = true;
   };
 
   user = {

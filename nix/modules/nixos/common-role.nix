@@ -6,6 +6,7 @@
 {
   imports = [
     flake.nixosModules.hardware
+    flake.nixosModules.security
     flake.nixosModules.styles
     flake.nixosModules.system
     flake.nixosModules.user
@@ -20,7 +21,10 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  security.sudo.wheelNeedsPassword = false;
+  security = {
+    sudo.wheelNeedsPassword = false;
+    sops.enable = true;
+  };
 
   system = {
     nix.enable = true;

@@ -51,6 +51,12 @@
     nixcord.url = "github:kaylorben/nixcord";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =

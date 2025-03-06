@@ -15,11 +15,6 @@ in
       type = str;
       description = "the name of the user's account";
     };
-    initialPassword = mkOption {
-      default = "pass";
-      type = str;
-      description = "initial password of user";
-    };
     extraGroups = mkOption {
       default = [ ];
       type = listOf str;
@@ -40,10 +35,10 @@ in
     users.users.root.hashedPassword = "*"; # lock root account
     users.users.${cfg.name} = {
       isNormalUser = true;
-      inherit (cfg) name initialPassword;
+      inherit (cfg) name;
       home = "/home/${cfg.name}";
       group = "users";
-      hashedPasswordFile = "/persist/passwords/${cfg.name}";
+      hashedPasswordFile = config.sops.secrets."passwords/${config.networking.hostName}/${cfg.name}".path;
 
       shell = pkgs.zsh;
       extraGroups = [

@@ -1,0 +1,27 @@
+# Make a user key
+# mkdir -p ~/.config/sops/age
+# age-keygen -o ~/.config/sops/age/keys.txt
+# or nix-shell -p ssh-to-age --run "ssh-to-age -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt
+# chmod 600 ~/.config/sops/age/keys.txt
+
+# Display the user public key:
+# age-keygen -y ~/.config/sops/age/keys.txt
+
+# Make a host public key:
+# nix-shell -p ssh-to-age --run "ssh-to-age < ~/.ssh/id_ed25519.pub"
+
+# Add secrets
+# sops secrets/secrets.yaml
+
+# Rekey secrets.yaml after editing recipients in .sops.yaml:
+# sops updatekeys secrets/secrets.yaml
+
+keys:
+    - &conor age1w9kt3da02kxv2q7e6m9elhkqdqxqgxnmj647qzsygyrsuk4xzpwqjmpmfj
+    - &desktop age14e20tgvtrz442g09juqgrwfat8adty0wgqqgule9ts3w23c88d2qqya03l
+creation_rules:
+  - path_regex: nix/hosts/secrets.ya?ml$
+    key_groups:
+      - age:
+        - *desktop
+        - *conor
