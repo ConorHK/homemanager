@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.system.tailscale;
-in {
+in
+{
   options.system.tailscale = with types; {
     enable = mkOption {
       default = false;
@@ -20,5 +22,3 @@ in {
     environment.systemPackages = with pkgs; [ tailscale ];
   };
 }
-
-

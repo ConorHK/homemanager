@@ -8,7 +8,8 @@
 with lib;
 let
   cfg = config.security.sops;
-in {
+in
+{
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
@@ -25,7 +26,7 @@ in {
       sops
     ];
     sops = {
-      age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+      age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     };
   };
 }

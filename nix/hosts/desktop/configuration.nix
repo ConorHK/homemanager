@@ -59,7 +59,7 @@ with lib;
     kernelParams = [
       # hibernate settings
       "resume_offset=533760"
-      "acpi_osi=\"!Windows 2015\""  # see https://bbs.archlinux.org/viewtopic.php?pid=2227023
+      "acpi_osi=\"!Windows 2015\"" # see https://bbs.archlinux.org/viewtopic.php?pid=2227023
     ];
     resumeDevice = "/dev/disk/by-label/nixos";
 

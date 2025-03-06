@@ -59,11 +59,11 @@ in
         dynamic-workspaces = true;
       };
       "org/gnome/shell/extensions/search-light" = {
-        shortcut-search = ["<Super>Space"];
+        shortcut-search = [ "<Super>Space" ];
       };
       "org/gnome/desktop/wm/keybindings" = {
-        switch-input-source = [];
-        switch-input-source-backward = [];
+        switch-input-source = [ ];
+        switch-input-source-backward = [ ];
       };
       "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     };
