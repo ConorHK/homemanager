@@ -40,6 +40,9 @@ in
       group = "users";
       hashedPasswordFile = config.sops.secrets."passwords/${config.networking.hostName}/${cfg.name}".path;
 
+      openssh.authorizedKeys.keys = [
+        (fetchKeys "ConorHK")
+      ];
       shell = pkgs.zsh;
       extraGroups = [
         "wheel"

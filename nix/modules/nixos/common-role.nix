@@ -1,8 +1,10 @@
 {
   inputs,
   flake,
+  lib,
   ...
 }:
+with lib;
 {
   imports = [
     flake.nixosModules.hardware
@@ -14,6 +16,7 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  environment.defaultPackages = mkForce [];
   home-manager = {
     extraSpecialArgs.inputs = inputs;
     useGlobalPkgs = true;
@@ -22,7 +25,10 @@
   nixpkgs.config.allowUnfree = true;
 
   security = {
-    sudo.wheelNeedsPassword = false;
+    sudo = {
+      wheelNeedsPassword = false;
+      execWheelOnly = true;
+    };
     sops.enable = true;
   };
 
