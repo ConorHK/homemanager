@@ -50,12 +50,12 @@ with lib;
   };
 
   system.xdg.enable = mkDefault true;
-  # styles.stylix.enableHome = mkDefault true;
+  styles.stylix.enableHome = mkDefault true;
 
   imports = [
     flake.homeModules.cli
     flake.homeModules.system
     inputs.nix-index-database.hmModules.nix-index
-    # flake.homeModules.styles
+    flake.homeModules.styles
   ];
 }
